@@ -1,5 +1,4 @@
 FROM continuumio/miniconda3:22.11.1-alpine
-# FROM continuumio/miniconda3:latest
 
 ENV LANG=C.UTF-8 
 ENV TZ=Asia/Shanghai

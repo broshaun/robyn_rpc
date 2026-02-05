@@ -3,7 +3,6 @@ version: '3.8'
 services:
   rpc_super:
     image: rpc:super
-    container_name: rpc_super
     build:
       context: .
     
@@ -16,14 +15,14 @@ services:
     command: python3 -u main.py
     
     networks:
-      busynet:
+      swarm-overlay-network:
         aliases:
           - rpc_super.local
 
 networks:
-  busynet:
+  swarm-overlay-network:
     external: true
-    name: busynet 
+    name: swarm-overlay-network 
 
 
  

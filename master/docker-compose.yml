@@ -2,8 +2,7 @@ version: '3.8'
 
 services:
   rpc_master:
-    image: rpc:master
-    container_name: rpc_master
+    image: robyn:master
     build:
       context: .
     restart: unless-stopped
@@ -18,16 +17,14 @@ services:
     command: python3 -u main.py --workers 4
       
     networks:
-      busynet:
+      swarm-overlay-network:
         aliases:
           - rpc_master.local
 
 
 networks:
-  busynet:
+  swarm-overlay-network:
     external: true
-    name: busynet 
-  # busynet:
-  #   driver: bridge
+    name: swarm-overlay-network 
 
 
