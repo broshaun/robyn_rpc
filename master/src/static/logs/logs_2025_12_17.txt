@@ -1,0 +1,122 @@
+----------------------------------------------------------------------------------------------------
+[2025-12-17 09:48:17] 异常发生:
+异常位置: <function Router.__init__.<locals>._ at 0xffffa7420540>
+异常类型: ConnectionError
+异常详情: Error Multiple exceptions: [Errno 111] Connection refused, [Errno 99] Cannot assign requested address connecting to localhost:6379.
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.13/site-packages/redis/asyncio/connection.py", line 307, in connect_check_health
+    await self.retry.call_with_retry(
+        lambda: self._connect(), lambda error: self.disconnect()
+    )
+  File "/opt/conda/lib/python3.13/site-packages/redis/asyncio/retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/site-packages/redis/asyncio/connection.py", line 768, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **self._connection_arguments()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/conda/lib/python3.13/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        lambda: protocol, host, port, **kwds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 2046, in create_connection
+OSError: Multiple exceptions: [Errno 111] Connection refused, [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 197, in response
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr/src/utils/middle/router.py", line 26, in _
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr/src/app/rpclient/rpc_view.py", line 12, in post
+    rpclient = RPClient(await RPC.RPCServer(alias=rpc_server))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/config/dbase.py", line 16, in RPCServer
+    endpoint = await AsynClient(host=cls.HOST,port=cls.PORT,db=cls.DB,password=cls.DBPWD).load(alias)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/utils/db/redis/asynclient.py", line 16, in load
+    return await self.client.get(alias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/site-packages/redis/asyncio/client.py", line 720, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/site-packages/redis/asyncio/connection.py", line 1198, in get_connection
+    await self.ensure_connection(connection)
+  File "/opt/conda/lib/python3.13/site-packages/redis/asyncio/connection.py", line 1231, in ensure_connection
+    await connection.connect()
+  File "/opt/conda/lib/python3.13/site-packages/redis/asyncio/connection.py", line 298, in connect
+    await self.connect_check_health(check_health=True)
+  File "/opt/conda/lib/python3.13/site-packages/redis/asyncio/connection.py", line 317, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error Multiple exceptions: [Errno 111] Connection refused, [Errno 99] Cannot assign requested address connecting to localhost:6379.
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2025-12-17 09:48:59] 异常发生:
+异常位置: <function Router.__init__.<locals>._ at 0xffffa7420540>
+异常类型: ConnectionError
+异常详情: Error Multiple exceptions: [Errno 111] Connection refused, [Errno 99] Cannot assign requested address connecting to localhost:6379.
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.13/site-packages/redis/asyncio/connection.py", line 307, in connect_check_health
+    await self.retry.call_with_retry(
+        lambda: self._connect(), lambda error: self.disconnect()
+    )
+  File "/opt/conda/lib/python3.13/site-packages/redis/asyncio/retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/site-packages/redis/asyncio/connection.py", line 768, in _connect
+    reader, writer = await asyncio.open_connection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **self._connection_arguments()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/conda/lib/python3.13/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        lambda: protocol, host, port, **kwds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 2046, in create_connection
+OSError: Multiple exceptions: [Errno 111] Connection refused, [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 197, in response
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr/src/utils/middle/router.py", line 26, in _
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr/src/app/rpclient/rpc_view.py", line 12, in post
+    rpclient = RPClient(await RPC.RPCServer(alias=rpc_server))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/config/dbase.py", line 16, in RPCServer
+    endpoint = await AsynClient(host=cls.HOST,port=cls.PORT,db=cls.DB,password=cls.DBPWD).load(alias)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/utils/db/redis/asynclient.py", line 16, in load
+    return await self.client.get(alias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/site-packages/redis/asyncio/client.py", line 720, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.13/site-packages/redis/asyncio/connection.py", line 1198, in get_connection
+    await self.ensure_connection(connection)
+  File "/opt/conda/lib/python3.13/site-packages/redis/asyncio/connection.py", line 1231, in ensure_connection
+    await connection.connect()
+  File "/opt/conda/lib/python3.13/site-packages/redis/asyncio/connection.py", line 298, in connect
+    await self.connect_check_health(check_health=True)
+  File "/opt/conda/lib/python3.13/site-packages/redis/asyncio/connection.py", line 317, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error Multiple exceptions: [Errno 111] Connection refused, [Errno 99] Cannot assign requested address connecting to localhost:6379.
+
+----------------------------------------------------------------------------------------------------

@@ -1,0 +1,231 @@
+----------------------------------------------------------------------------------------------------
+[2025-11-28 13:12:49] 异常发生:
+异常位置: <function RPCView.post at 0xffff8b2977e0>
+异常类型: ZeroDivisionError
+异常详情: division by zero
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 71, in response
+    await result
+  File "/usr/src/app/views/rpc_views.py", line 13, in post
+    1/0
+    ~^~
+ZeroDivisionError: division by zero
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2025-11-28 13:17:01] 异常发生:
+异常位置: <function RPCView.post at 0xffff8b2977e0>
+异常类型: ZeroDivisionError
+异常详情: division by zero
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 71, in response
+    await result
+  File "/usr/src/app/views/rpc_views.py", line 13, in post
+    rpc_server = request.path_params["rpc_server"]
+    ^^^
+ZeroDivisionError: division by zero
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2025-11-28 13:17:03] 异常发生:
+异常位置: <function RPCView.post at 0xffff8b2977e0>
+异常类型: ZeroDivisionError
+异常详情: division by zero
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 71, in response
+    await result
+  File "/usr/src/app/views/rpc_views.py", line 13, in post
+    rpc_server = request.path_params["rpc_server"]
+    ^^^
+ZeroDivisionError: division by zero
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2025-11-28 13:17:07] 异常发生:
+异常位置: <function RPCView.post at 0xffff8b2977e0>
+异常类型: ZeroDivisionError
+异常详情: division by zero
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 71, in response
+    await result
+  File "/usr/src/app/views/rpc_views.py", line 13, in post
+    rpc_server = request.path_params["rpc_server"]
+    ^^^
+ZeroDivisionError: division by zero
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2025-11-28 13:17:51] 异常发生:
+异常位置: <function RPCView.post at 0xffffbbaf77e0>
+异常类型: ConnectionError
+异常详情: Error 99 connecting to localhost:6379. Cannot assign requested address.
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.12/site-packages/redis/connection.py", line 855, in connect_check_health
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/retry.py", line 116, in call_with_retry
+    return do()
+           ^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/connection.py", line 856, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/connection.py", line 1306, in _connect
+    raise err
+  File "/opt/conda/lib/python3.12/site-packages/redis/connection.py", line 1290, in _connect
+    sock.connect(socket_address)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 71, in response
+    await result
+  File "/usr/src/app/views/rpc_views.py", line 21, in post
+    rpclient = RPClient(RPC.RPCServer(alias=rpc_server))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/config/dbase.py", line 14, in RPCServer
+    endpoint = RedisDB(host=cls.HOST,port=cls.PORT,db=cls.DB,password=cls.DBPWD).load(alias)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/utils/db/buffer.py", line 17, in load
+    return self.__link.get(name=alias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/commands/core.py", line 1923, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/client.py", line 657, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/client.py", line 663, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/utils.py", line 196, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/connection.py", line 2603, in get_connection
+    connection.connect()
+  File "/opt/conda/lib/python3.12/site-packages/redis/connection.py", line 846, in connect
+    self.connect_check_health(check_health=True)
+  File "/opt/conda/lib/python3.12/site-packages/redis/connection.py", line 863, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2025-11-28 13:17:53] 异常发生:
+异常位置: <function RPCView.post at 0xffffbbaf77e0>
+异常类型: ConnectionError
+异常详情: Error 99 connecting to localhost:6379. Cannot assign requested address.
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.12/site-packages/redis/connection.py", line 855, in connect_check_health
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/retry.py", line 116, in call_with_retry
+    return do()
+           ^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/connection.py", line 856, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/connection.py", line 1306, in _connect
+    raise err
+  File "/opt/conda/lib/python3.12/site-packages/redis/connection.py", line 1290, in _connect
+    sock.connect(socket_address)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 71, in response
+    await result
+  File "/usr/src/app/views/rpc_views.py", line 21, in post
+    rpclient = RPClient(RPC.RPCServer(alias=rpc_server))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/config/dbase.py", line 14, in RPCServer
+    endpoint = RedisDB(host=cls.HOST,port=cls.PORT,db=cls.DB,password=cls.DBPWD).load(alias)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/utils/db/buffer.py", line 17, in load
+    return self.__link.get(name=alias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/commands/core.py", line 1923, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/client.py", line 657, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/client.py", line 663, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/utils.py", line 196, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/connection.py", line 2603, in get_connection
+    connection.connect()
+  File "/opt/conda/lib/python3.12/site-packages/redis/connection.py", line 846, in connect
+    self.connect_check_health(check_health=True)
+  File "/opt/conda/lib/python3.12/site-packages/redis/connection.py", line 863, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2025-11-28 13:20:09] 异常发生:
+异常位置: <function RPCView.post at 0xffffbbaf77e0>
+异常类型: ConnectionError
+异常详情: Error 99 connecting to localhost:6379. Cannot assign requested address.
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.12/site-packages/redis/connection.py", line 855, in connect_check_health
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/retry.py", line 116, in call_with_retry
+    return do()
+           ^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/connection.py", line 856, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/connection.py", line 1306, in _connect
+    raise err
+  File "/opt/conda/lib/python3.12/site-packages/redis/connection.py", line 1290, in _connect
+    sock.connect(socket_address)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 71, in response
+    await result
+  File "/usr/src/app/views/rpc_views.py", line 21, in post
+    rpclient = RPClient(RPC.RPCServer(alias=rpc_server))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/config/dbase.py", line 14, in RPCServer
+    endpoint = RedisDB(host=cls.HOST,port=cls.PORT,db=cls.DB,password=cls.DBPWD).load(alias)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/utils/db/buffer.py", line 17, in load
+    return self.__link.get(name=alias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/commands/core.py", line 1923, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/client.py", line 657, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/client.py", line 663, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/utils.py", line 196, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/site-packages/redis/connection.py", line 2603, in get_connection
+    connection.connect()
+  File "/opt/conda/lib/python3.12/site-packages/redis/connection.py", line 846, in connect
+    self.connect_check_health(check_health=True)
+  File "/opt/conda/lib/python3.12/site-packages/redis/connection.py", line 863, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 99 connecting to localhost:6379. Cannot assign requested address.
+
+----------------------------------------------------------------------------------------------------

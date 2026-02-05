@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  rpc_master:
+    image: rpc:master
+    container_name: rpc_master
+    build:
+      context: .
+    restart: unless-stopped
+    ports:
+      - "5015:5015"
+    volumes:
+      - ./src:/usr/src:ro
+      - ./src/static/logs:/usr/src/static/logs:rw
+      - ./src/static/image:/usr/src/static/image:rw
+      
+    working_dir: /usr/src
+    command: python3 -u main.py --workers 4
+      
+    networks:
+      busynet:
+        aliases:
+          - rpc_master.local
+
+
+networks:
+  busynet:
+    external: true
+    name: busynet 
+  # busynet:
+  #   driver: bridge
+
+

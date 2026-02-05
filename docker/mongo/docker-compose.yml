@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+
+  mongod:
+    image: mongo
+    restart: unless-stopped
+    command: ["mongod", "--auth"]
+    ports:
+      - 27017:27017
+    # volumes:
+    #   - ./storage/mongo/data/db:/data/db
+
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: you_paseworkey
+
+    networks:
+      swarm-overlay-network:
+        aliases:
+          - mongo.service
+
+networks:
+  swarm-overlay-network:
+    external: true
+    name: swarm-overlay-network
