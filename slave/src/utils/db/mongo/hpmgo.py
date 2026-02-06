@@ -84,7 +84,7 @@ class CRUD(object):
         table = aggregate_arrow_all(self.col, pipeline=pipeline, **kwargs)
         return pl.from_arrow(table)
 
-    def find_id(self, id, **kwargs)->pl.DataFrame:
+    def find_id(self, id, **kwargs)->dict:
         objs = convert_to_objectid(id)
         if objs:
             for ss in self.find(filter={'_id':objs[0]}, **kwargs).iter_rows(named=True):

@@ -34,14 +34,20 @@ class RegisterS():
         Rsp.ok(rowcount)
 
     def find(self,id):
-        data = self.obj.hpmgo.find_id(id)
-        Rsp.ok(data)
+        da = self.obj.hpmgo.find_id(id)
+
+        
+
+        Rsp.ok(da)
 
     def browse(self,skip=0,limit=10,**filter):
         "查看子用户"
         # filter['creator'] = self.obj.uid
-        data = self.obj.hpmgo.find_for_total_detail(filter=filter,skip=skip,limit=limit)
-        Rsp.ok(data)
+        df = self.obj.hpmgo.find(filter=filter,skip=skip,limit=limit)
+        print(df)
+        df2 = self.obj.hpmgo.find_ids(ids=df['id'])
+        # data = self.obj.hpmgo.find_for_total_detail(filter=filter,skip=skip,limit=limit)
+        Rsp.ok(df2)
             
         
         
