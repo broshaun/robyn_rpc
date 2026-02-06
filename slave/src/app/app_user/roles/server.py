@@ -1,5 +1,5 @@
 from utils.middle import Rsp
-from app.model.super import MGSuper
+from app.model.slave import MGSuper
 
 
 

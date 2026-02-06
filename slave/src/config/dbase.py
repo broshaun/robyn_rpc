@@ -5,15 +5,6 @@ from .setting import WebIP
 
 localhost = 'localhost'
 
-class MongoDB():
-    # HOST = "mongo.service"
-    HOST = localhost
-    PORT = 27017
-    DBUSER = 'root'
-    DBPWD = 'aak123456'
-    def __new__(cls,database):
-        return DBOpen(host=cls.HOST,port=cls.PORT,user=cls.DBUSER,password=cls.DBPWD,database=database)
-
 
 class Session:
     # HOST = "redis.service"
@@ -44,4 +35,17 @@ class RPC:
         '存储示例'
         success = RedisClient(host=cls.HOST,port=cls.PORT,db=cls.DB,password=cls.DBPWD).store(alias='slave',value='tcp://localhost:4242')
         if success:
-            print("RPCSuper存储成功")
+            print("RPCSlave存储成功")
+
+
+
+
+class MongoDB():
+    # HOST = "mongo.service"
+    HOST = localhost
+    PORT = 27017
+    DBUSER = 'root'
+    DBPWD = 'you_paseworkey'
+    def __new__(cls,database):
+        return DBOpen(host=cls.HOST,port=cls.PORT,user=cls.DBUSER,password=cls.DBPWD,database=database)
+

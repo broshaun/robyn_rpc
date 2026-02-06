@@ -1,5 +1,5 @@
 from utils.middle import Rsp,JWT
-from app.model.super import MGSuper
+from app.model.slave import MGSuper
 
 
 

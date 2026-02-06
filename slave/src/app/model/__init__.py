@@ -1,1 +1,1 @@
-from .super import MGSuper
+from .slave import MGSuper

@@ -10,7 +10,7 @@ class MGSuper():
         self.sub = usr.get('sub','...')
         self.alias = f'{self.sub}:{self.uid}'
         self.session = config.Session()
-        self._hpmgo = config.MongoDB('super').open(collection_name)
+        self._hpmgo = config.MongoDB('slave').open(collection_name)
         self._hpmgo.uid = self.uid
 
     @property
