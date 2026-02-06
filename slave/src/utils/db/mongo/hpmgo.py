@@ -1,10 +1,11 @@
 from .mgops import Mongo
 from bson import ObjectId,errors
-from pymongoarrow.api import find_arrow_all,aggregate_arrow_all
-from pymongoarrow.schema import Schema
+from pymongoarrow.api import aggregate_arrow_all
 import polars as pl
 
-def convert_to_objectid(object_id:str):
+def convert_to_objectid(object_id):
+    if isinstance(object_id, ObjectId):
+        return object_id
     try:
         return ObjectId(object_id)
     except errors.InvalidId:
@@ -24,10 +25,9 @@ class CRUD(object):
         return self.col.insert_many(documents).inserted_ids
     
     def delete_id(self, object_id):
-        if not isinstance(object_id, ObjectId):
-            object_id = convert_to_objectid(object_id)
-            if not object_id:
-                return 0
+        object_id = convert_to_objectid(object_id)
+        if not object_id:
+            return 0
         return self.col.delete_one({"_id": object_id}).deleted_count
     
     def delete_many(self, **filter):
@@ -36,55 +36,40 @@ class CRUD(object):
     def drop(self):
         self.col.drop()
 
-    def update_one(self, object_id, document:dict={}):
-        if not isinstance(object_id,ObjectId):
-            object_id = convert_to_objectid(object_id)
-            if not object_id:
-                return 0
-        if 'push' in document:
-            result = self.col.update_one(filter={'_id':object_id},update={'$push':document.get('push')})
-        elif 'pull' in document:
-            result = self.col.update_one(filter={'_id':object_id},update={'$pull':document.get('pull')})
-        elif 'unset' in document:
-            result = self.col.update_one(filter={'_id':object_id},update={'$unset':document.get('unset')})
-        elif 'set' in document:
-            result = self.col.update_one(filter={'_id':object_id},update={'$set':document.get('set')})
-        else:
-            result = self.col.update_one(filter={'_id':object_id},update=document)
-        return result.modified_count
+    def update_one_push(self,object_id, document:dict={}):
+        object_id = convert_to_objectid(object_id)
+        if not object_id:
+            return 0
+        return self.col.update_one(filter={'_id':object_id},update={'$push':document}).modified_count
     
+    def update_one_pull(self,object_id, document:dict={}):
+        object_id = convert_to_objectid(object_id)
+        if not object_id:
+            return 0
+        return self.col.update_one(filter={'_id':object_id},update={'$pull':document}).modified_count
+    
+    def update_one_set(self,object_id, document:dict={}):
+        object_id = convert_to_objectid(object_id)
+        if not object_id:
+            return 0
+        return self.col.update_one(filter={'_id':object_id},update={'$set':document}).modified_count
+    
+    def update_one_unset(self,object_id, document:dict={}):
+        object_id = convert_to_objectid(object_id)
+        if not object_id:
+            return 0
+        return self.col.update_one(filter={'_id':object_id},update={'$unset':document}).modified_count
+    
+    def replace_one(self,object_id, document:dict={}):
+        object_id = convert_to_objectid(object_id)
+        if not object_id:
+            return 0
+        return self.col.update_one(filter={'_id':object_id},update=document).modified_count
 
     def count(self,**filter)->int:
         return self.col.count_documents(filter)
 
-    def find(self,size=10,offset=1,**filter):
-        with self.col.find(filter=filter).skip(int(offset)-1).limit(int(size)) as cursor:
-            for doc in cursor:
-                yield doc
-                
-    def find_id(self,object_id):
-        if not isinstance(object_id,ObjectId):
-            object_id = convert_to_objectid(object_id)
-            if not object_id:
-                return {}
-        return self.col.find_one(filter={'_id':object_id})
-
-    def find_one(self,**filter):
-        return self.col.find_one(filter)
-    
-    def find_for_total_detail(self,size=10,offset=1,**filter):
-        data = {}
-        data['total'] = self.col.count_documents(filter)
-        cursor = self.col.find(filter).skip(int(offset)-1).limit(int(size))
-        result = []
-        for document in cursor:
-            result.append(document)
-        else:
-            data['detail'] = result
-        return data
-    
-
-    def agg_to_polars(self, filter:dict, skip=0, limit=10,**kwargs)->pl.DataFrame:
+    def find(self, filter:dict, skip=0, limit=10,**kwargs)->pl.DataFrame:
         pipeline= [
             {"$match": filter},
             {"$set": {"id": {"$toString": "$_id"}}},
@@ -94,6 +79,29 @@ class CRUD(object):
         ]
         table = aggregate_arrow_all(self.col, pipeline=pipeline, **kwargs)
         return pl.from_arrow(table)
+
+    def find_id(self, object_id, **kwargs)->pl.DataFrame:
+        object_id = convert_to_objectid(object_id)
+        if not object_id:
+            return dict()
+        
+        for ss in self.find(filter={'_id':object_id}, **kwargs).iter_rows(named=True):
+            return ss
+        else:
+            return dict()
+        
+    def find_one(self, filter, **kwargs):
+        for ss in self.find(filter, **kwargs).iter_rows(named=True):
+            return ss
+        else:
+            return dict()
+
+    def find_for_total_detail(self, filter:dict, skip=0, limit=10, **kwargs):
+        data = {}
+        data['total'] = self.col.count_documents(filter)
+        data['detail'] = self.find(filter, skip, limit, **kwargs)
+        return data
+    
         
 
 

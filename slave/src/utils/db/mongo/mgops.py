@@ -1,4 +1,6 @@
 from pymongo import MongoClient
+from pymongoarrow.api import aggregate_arrow_all
+import polars as pl
 
 
 class Mongo:
@@ -9,6 +11,7 @@ class Mongo:
         else:
             self._client = MongoClient(f"mongodb://{host}:27017/")
         self._db = self._client[database]
+        self._col = None
         
     @property
     def ping(self)->dict:
@@ -16,6 +19,8 @@ class Mongo:
 
     def col(self,collection):
         return self._db[collection]
+    
+
     
     
 

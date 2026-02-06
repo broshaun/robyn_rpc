@@ -24,7 +24,7 @@ class RolesS():
             cnt = await self.obj.hpmgo.count({"role":kwargs.get('role')})
             if cnt > 0:
                 Rsp.repeat("角色已存在")
-        rowcount = await self.obj.hpmgo.update_one(id,document={'set':kwargs})
+        rowcount = await self.obj.hpmgo.update_one_set(id,document=kwargs)
         Rsp.ok(rowcount)
 
     async def find(self,id):
