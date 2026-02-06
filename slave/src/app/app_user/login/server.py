@@ -22,7 +22,7 @@ class LoginS():
 
     def sign_in(self,email,pass_word):
         '''用户登陆'''
-        df = self.obj.hpmgo.agg_to_polars(schema=schema, email=email)
+        df = self.obj.hpmgo.agg_to_polars(filter=dict(email=email),schema=schema)
         Rsp.ok(df)
 
         for ss in self.obj.hpmgo.agg_to_polars(email=email,schema=schema).iter_rows(named=True):

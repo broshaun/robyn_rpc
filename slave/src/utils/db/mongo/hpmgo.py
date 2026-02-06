@@ -84,14 +84,15 @@ class CRUD(object):
         return data
     
 
-    def agg_to_polars(self, schema:Schema, skip=0, limit=10, **filter:dict)->pl.DataFrame:
+    def agg_to_polars(self, filter:dict, skip=0, limit=10,**kwargs)->pl.DataFrame:
         pipeline= [
             {"$match": filter},
             {"$set": {"id": {"$toString": "$_id"}}},
+            {"$unset": "_id"},
             {"$skip": int(skip)},
-            {"$limit": int(limit)}
+            {"$limit": int(limit)},
         ]
-        table = aggregate_arrow_all(self.col, pipeline=pipeline, schema=schema,allow_invalid=True)
+        table = aggregate_arrow_all(self.col, pipeline=pipeline, **kwargs)
         return pl.from_arrow(table)
         
 
