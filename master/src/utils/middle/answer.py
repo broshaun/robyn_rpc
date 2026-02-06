@@ -185,24 +185,16 @@ class Rsp(CancelledError):
     @classmethod
     @wrapt.decorator
     async def response(wrapped, instance, args, kwargs):
-        '''说明：
-        当 wrapped 执行时，会被 except Rsp 截断并直接返回 ok.to_json()，后续不再执行。
-          但是当遇到异步时，返回的 result 是未被执行的 <coroutine object> ,所以使用 await result 使 wrapped 开始执行，从而有以上步骤。
-        '''
-        result = {"code": 204, "message": "无内容", "data": None}
         try:
             future = wrapped(*args, **kwargs)
             if isinstance(future, Awaitable):
                 await future
-
         except Rsp as s:
-            result = s.to_json_string()
-
+            return s.to_json_string()
         except CancelledError:
-            result = {"code": 499, "message": "RPClient Closed Request", "data": datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
-
+            return dict(code=499, message='RPClient Closed Request', data=datetime.now())
         except Exception as e:
             logs.error(e,wrapped)
-            result = {"code": 502, "message": "Robyn 错误", "data": datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
-
-        return result
+            return dict(code=502, message="Robyn 错误", data=datetime.now())
+        else:
+            return dict(code=204, message="无内容", data=None)

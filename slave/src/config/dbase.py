@@ -37,9 +37,6 @@ class RPC:
         if success:
             print("RPCSlave存储成功")
 
-
-
-
 class MongoDB():
     # HOST = "mongo.service"
     HOST = localhost

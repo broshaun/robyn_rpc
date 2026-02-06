@@ -646,3 +646,21 @@ Traceback (most recent call last):
 TypeError: 'NoneType' object is not iterable
 
 ----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-02-06 14:42:15] 异常发生:
+异常位置: <bound method Routes.echo of <__main__.Views object at 0x105572500>>
+异常类型: TypeError
+异常详情: 'NoneType' object is not iterable
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/slave/src/utils/middle/answer.py", line 211, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/slave/src/utils/middle/routes.py", line 35, in echo
+    return await result
+  File "/Users/huaz/Documents/Coder/robyn_rpc/slave/src/app/app_user/login/views.py", line 10, in post
+    await css.sign_in(**kwargs)
+  File "/Users/huaz/Documents/Coder/robyn_rpc/slave/src/app/app_user/login/server.py", line 25, in sign_in
+    data['user'].update(await self.obj2.hpmgo.find_one(role=document.get('role')))
+TypeError: 'NoneType' object is not iterable
+
+----------------------------------------------------------------------------------------------------
