@@ -1,9 +1,20 @@
 from utils.middle import Rsp,JWT
 from app.model.slave import MGSuper
+import pyarrow as pa
+from pymongoarrow.schema import Schema
 
+
+schema = Schema({
+    "id": pa.string(),
+    "role": pa.string(),
+    "email": pa.string(),
+    "pass_word": pa.string(),
+    "uid":pa.int64(),
+})
 
 
 class LoginS():
+
     """用户登陆"""
     def __init__(self):
         self.obj = MGSuper('user')
@@ -11,7 +22,10 @@ class LoginS():
 
     def sign_in(self,email,pass_word):
         '''用户登陆'''
-        for ss in self.obj.hpmgo.agg_to_polars(email=email).iter_rows(named=True):
+        df = self.obj.hpmgo.agg_to_polars(schema=schema, email=email)
+        Rsp.ok(df)
+
+        for ss in self.obj.hpmgo.agg_to_polars(email=email,schema=schema).iter_rows(named=True):
             uid = ss.get('uid',0)
             if pass_word == ss.get('pass_word'):
                 self.obj.session.store(alias=f'super:{uid}', value=ss.get('id') ,ex=100000)
@@ -51,3 +65,6 @@ class LoginS():
         object_id = self.obj.session.load(self.obj.alias)
         modified = await self.obj.hpmgo.update_one(object_id,document={'set':{'pass_word':pass_word}})
         Rsp.ok(modified,msg="密码修改成功")
+
+
+
