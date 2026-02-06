@@ -3,13 +3,17 @@ from bson import ObjectId,errors
 from pymongoarrow.api import aggregate_arrow_all
 import polars as pl
 
-def convert_to_objectid(object_id):
-    if isinstance(object_id, ObjectId):
-        return object_id
-    try:
-        return ObjectId(object_id)
-    except errors.InvalidId:
-        return None
+def convert_to_objectid(*ids):
+    result = []
+    for value in ids:
+        if isinstance(value, ObjectId):
+            result.append(value)
+        else:
+            try:
+                result.append(ObjectId(value))
+            except (errors.InvalidId, TypeError):
+                continue
+    return result
 
 
 class CRUD(object):
@@ -24,11 +28,11 @@ class CRUD(object):
     def insert_many(self, documents):
         return self.col.insert_many(documents).inserted_ids
     
-    def delete_id(self, object_id):
-        object_id = convert_to_objectid(object_id)
-        if not object_id:
-            return 0
-        return self.col.delete_one({"_id": object_id}).deleted_count
+    def delete_id(self, id):
+        objs = convert_to_objectid(id)
+        if objs:
+            return self.col.delete_one({"_id": objs[0]}).deleted_count
+        return 0
     
     def delete_many(self, **filter):
         return self.col.delete_many(filter).deleted_count
@@ -36,35 +40,35 @@ class CRUD(object):
     def drop(self):
         self.col.drop()
 
-    def update_one_push(self,object_id, document:dict={}):
-        object_id = convert_to_objectid(object_id)
-        if not object_id:
-            return 0
-        return self.col.update_one(filter={'_id':object_id},update={'$push':document}).modified_count
+    def update_one_push(self, id, document:dict={}):
+        objs = convert_to_objectid(id)
+        if objs:
+            return self.col.update_one(filter={'_id':objs[0]},update={'$push':document}).modified_count
+        return 0
     
-    def update_one_pull(self,object_id, document:dict={}):
-        object_id = convert_to_objectid(object_id)
-        if not object_id:
-            return 0
-        return self.col.update_one(filter={'_id':object_id},update={'$pull':document}).modified_count
+    def update_one_pull(self, id, document:dict={}):
+        objs = convert_to_objectid(id)
+        if objs:
+            return self.col.update_one(filter={'_id':objs[0]},update={'$pull':document}).modified_count
+        return 
     
-    def update_one_set(self,object_id, document:dict={}):
-        object_id = convert_to_objectid(object_id)
-        if not object_id:
-            return 0
-        return self.col.update_one(filter={'_id':object_id},update={'$set':document}).modified_count
+    def update_one_set(self,id, document:dict={}):
+        objs = convert_to_objectid(id)
+        if objs:
+            return self.col.update_one(filter={'_id':objs[0]},update={'$set':document}).modified_count
+        return 0
     
-    def update_one_unset(self,object_id, document:dict={}):
-        object_id = convert_to_objectid(object_id)
-        if not object_id:
-            return 0
-        return self.col.update_one(filter={'_id':object_id},update={'$unset':document}).modified_count
+    def update_one_unset(self,id, document:dict={}):
+        objs = convert_to_objectid(id)
+        if objs:
+            return self.col.update_one(filter={'_id':objs[0]},update={'$unset':document}).modified_count
+        return 0
     
-    def replace_one(self,object_id, document:dict={}):
-        object_id = convert_to_objectid(object_id)
-        if not object_id:
-            return 0
-        return self.col.update_one(filter={'_id':object_id},update=document).modified_count
+    def replace_one(self,id, document:dict={}):
+        objs = convert_to_objectid(id)
+        if objs:
+            return self.col.update_one(filter={'_id':objs[0]},update=document).modified_count
+        return 0
 
     def count(self,**filter)->int:
         return self.col.count_documents(filter)
@@ -80,15 +84,22 @@ class CRUD(object):
         table = aggregate_arrow_all(self.col, pipeline=pipeline, **kwargs)
         return pl.from_arrow(table)
 
-    def find_id(self, object_id, **kwargs)->pl.DataFrame:
-        object_id = convert_to_objectid(object_id)
-        if not object_id:
-            return dict()
+    def find_id(self, id, **kwargs)->pl.DataFrame:
+        objs = convert_to_objectid(id)
+        if objs:
+            for ss in self.find(filter={'_id':objs[0]}, **kwargs).iter_rows(named=True):
+                return ss
+        return dict()
         
-        for ss in self.find(filter={'_id':object_id}, **kwargs).iter_rows(named=True):
-            return ss
-        else:
-            return dict()
+    def find_ids(self, ids:list, **kwargs)->pl.DataFrame:
+        objs = convert_to_objectid(*ids)
+        pipeline= [
+            {"$match": {"_id": {"$in": objs}}},
+            {"$set": {"id": {"$toString": "$_id"}}},
+            {"$unset": "_id"},
+        ]
+        table = aggregate_arrow_all(self.col, pipeline=pipeline, **kwargs)
+        return pl.from_arrow(table)
         
     def find_one(self, filter, **kwargs):
         for ss in self.find(filter, **kwargs).iter_rows(named=True):
