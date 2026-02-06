@@ -22,10 +22,10 @@ class LoginS():
 
     def sign_in(self,email,pass_word):
         '''用户登陆'''
-        df = self.obj.hpmgo.agg_to_polars(filter=dict(email=email),schema=schema)
-        Rsp.ok(df)
+        # df = self.obj.hpmgo.agg_to_polars(filter=dict(email=email),schema=schema)
+        # Rsp.ok(df)
 
-        for ss in self.obj.hpmgo.agg_to_polars(email=email,schema=schema).iter_rows(named=True):
+        for ss in self.obj.hpmgo.agg_to_polars(filter=dict(email=email),schema=schema).iter_rows(named=True):
             uid = ss.get('uid',0)
             if pass_word == ss.get('pass_word'):
                 self.obj.session.store(alias=f'super:{uid}', value=ss.get('id') ,ex=100000)
