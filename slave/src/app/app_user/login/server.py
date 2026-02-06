@@ -9,24 +9,26 @@ class LoginS():
         self.obj = MGSuper('user')
         self.obj2 = MGSuper('roles')
 
-    async def sign_in(self,email,pass_word):
+    def sign_in(self,email,pass_word):
         '''用户登陆'''
-        cursor = self.obj.hpmgo.find(email=email)
-        async for document in cursor:
-            uid = document.get('uid',0)
-            oid = document.get('_id')
-            if pass_word == document.get('pass_word'):
-                self.obj.session.store(alias=f'super:{uid}', value=str(oid) ,ex=100000)
-                data = {}
-                data['login_token'] = JWT.jwt_login(uid,sub='super',eff=100000)
-                data['login_expired'] = 100000
-                data['refresh_token'] = JWT.jwt_refresh(uid, eff=1000000)
-                data['user'] = {'sub': 'super', 'uid': uid}
-                data['user'].update(await self.obj2.hpmgo.find_one(role=document.get('role')))
-                # 1/0
-                Rsp.ok('data')
-        else:
-            Rsp.login_fail()
+        df = self.obj.hpmgo.polars_get_database()
+        return df
+        # cursor = self.obj.hpmgo.find(email=email)
+        # for document in cursor:
+        #     uid = document.get('uid',0)
+        #     oid = document.get('_id')
+        #     if pass_word == document.get('pass_word'):
+        #         self.obj.session.store(alias=f'super:{uid}', value=str(oid) ,ex=100000)
+        #         data = {}
+        #         data['login_token'] = JWT.jwt_login(uid,sub='super',eff=100000)
+        #         data['login_expired'] = 100000
+        #         data['refresh_token'] = JWT.jwt_refresh(uid, eff=1000000)
+        #         data['user'] = {'sub': 'super', 'uid': uid}
+        #         data['user'].update(self.obj2.hpmgo.find_one(role=document.get('role')))
+        #         # 1/0
+        #         Rsp.ok('data')
+        # else:
+        #     Rsp.login_fail()
 
     def sign_out(self):
         '''用户登出；清除缓存'''

@@ -17,7 +17,7 @@ class RegisterS():
         Rsp.ok(lastid,msg='注册成功。')
     
     async def delete(self,id):
-        rowcount = await self.obj.delete(id)
+        rowcount = await self.obj.hpmgo.delete_id(id)
         Rsp.ok(rowcount)
 
     async def modify(self,id,**kwargs):

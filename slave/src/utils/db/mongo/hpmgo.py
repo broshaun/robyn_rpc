@@ -1,107 +1,93 @@
-from .mgops import MgoDB
+from .mgops import Mongo
 from bson import ObjectId,errors
-from copy import deepcopy
-
+from pymongoarrow.api import find_arrow_all
+from pymongoarrow.schema import Schema
+import polars as pl
 
 def convert_to_objectid(object_id:str):
     try:
         return ObjectId(object_id)
     except errors.InvalidId:
-        return ObjectId()
+        return None
 
 
 class CRUD(object):
-    def __init__(self,mgo:MgoDB,collection_name):
+    def __init__(self,mgo:Mongo,collection_name):
         self.uid = 0
         self.col = mgo.col(collection_name)
+    
+    def insert_one(self, document):
+        document["creator"] = self.uid
+        return self.col.insert_one(document).inserted_id
+    
+    def insert_many(self, documents):
+        return self.col.insert_many(documents).inserted_ids
+    
+    def delete_id(self, object_id):
+        if not isinstance(object_id, ObjectId):
+            object_id = convert_to_objectid(object_id)
+            if not object_id:
+                return 0
+        return self.col.delete_one({"_id": object_id}).deleted_count
+    
+    def delete_many(self, **filter):
+        return self.col.delete_many(filter).deleted_count
+    
+    def drop(self):
+        self.col.drop()
 
-        
-    @property
-    async def count(self)->int:
-        return await self.col.count_documents(filter={})
-    
-    async def count(self,**filter)->int:
-        # filter:dict = deepcopy(filter)
-        return await self.col.count_documents(filter)
-
-    async def insert_one(self, document):
-        document['creator'] = self.uid
-        result = await self.col.insert_one(document)
-        return result.inserted_id
-    
-    async def insert_many(self, documents):
-        result = await self.col.insert_many(documents)
-        return result.inserted_ids
-    
-    async def delete_id(self, object_id):
+    def update_one(self, object_id, document:dict={}):
         if not isinstance(object_id,ObjectId):
             object_id = convert_to_objectid(object_id)
-        result = await self.col.delete_one({'_id':object_id})
-        return result.deleted_count
-    
-    async def delete_many(self, **filter):
-        # filter:dict = deepcopy(filter)
-        return await self.col.delete_many(filter)
-    
-
-    async def drop(self):
-        await self.col.drop()
-
-    async def update_one(self, object_id,document:dict={}):
-        '''
-        更新数据
-        
-        :param object_id: 指定修改的object_id.
-
-        :document set 更新指定字段
-
-        :document unset 删除指定字段
-
-        :document push 向数组字段追加元素
-
-        :document pull 从数组删除指定元素
-
-        : document 没有指定操作符,覆盖当前数据
-        '''
-        if not isinstance(object_id,ObjectId):
-            object_id = convert_to_objectid(object_id)
-
+            if not object_id:
+                return 0
         if 'push' in document:
-            result = await self.col.update_one(filter={'_id':object_id},update={'$push':document.get('push')})
+            result = self.col.update_one(filter={'_id':object_id},update={'$push':document.get('push')})
         elif 'pull' in document:
-            result = await self.col.update_one(filter={'_id':object_id},update={'$pull':document.get('pull')})
+            result = self.col.update_one(filter={'_id':object_id},update={'$pull':document.get('pull')})
         elif 'unset' in document:
-            result = await self.col.update_one(filter={'_id':object_id},update={'$unset':document.get('unset')})
+            result = self.col.update_one(filter={'_id':object_id},update={'$unset':document.get('unset')})
         elif 'set' in document:
-            result = await self.col.update_one(filter={'_id':object_id},update={'$set':document.get('set')})
+            result = self.col.update_one(filter={'_id':object_id},update={'$set':document.get('set')})
         else:
-            result = await self.col.update_one(filter={'_id':object_id},update=document)
+            result = self.col.update_one(filter={'_id':object_id},update=document)
         return result.modified_count
+    
 
-    async def find(self,size=10,offset=1,**filter):
-        filter:dict = deepcopy(filter)
-        async with self.col.find(filter=filter).skip(int(offset)-1).limit(int(size)) as cursor:
-            async for doc in cursor:
+    def count(self,**filter)->int:
+        return self.col.count_documents(filter)
+
+    def find(self,size=10,offset=1,**filter):
+        with self.col.find(filter=filter).skip(int(offset)-1).limit(int(size)) as cursor:
+            for doc in cursor:
                 yield doc
                 
-    async def find_id(self,object_id):
+    def find_id(self,object_id):
         if not isinstance(object_id,ObjectId):
             object_id = convert_to_objectid(object_id)
-            return await self.col.find_one(filter={'_id':object_id})
+            if not object_id:
+                return {}
+        return self.col.find_one(filter={'_id':object_id})
 
-    async def find_one(self,**filter):
-        return await self.col.find_one(filter=filter)
+    def find_one(self,**filter):
+        return self.col.find_one(filter)
     
-    async def find_for_total_detail(self,size=10,offset=1,**filter):
+    def find_for_total_detail(self,size=10,offset=1,**filter):
         data = {}
-        data['total'] = await self.col.count_documents(filter=filter)
+        data['total'] = self.col.count_documents(filter)
         cursor = self.col.find(filter).skip(int(offset)-1).limit(int(size))
         result = []
-        async for document in cursor:
+        for document in cursor:
             result.append(document)
         else:
             data['detail'] = result
         return data
+    
+
+    def polars_get_database(self,schema:Schema=None, skip=0, limit=100, **filter: dict):
+        table = find_arrow_all(self.col, query=filter, schema=schema, skip=skip, limit=limit)
+        return pl.from_arrow(table)
+        
 
 
 
