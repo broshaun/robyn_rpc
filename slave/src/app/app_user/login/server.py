@@ -23,7 +23,8 @@ class LoginS():
                 data['refresh_token'] = JWT.jwt_refresh(uid, eff=1000000)
                 data['user'] = {'sub': 'super', 'uid': uid}
                 data['user'].update(await self.obj2.hpmgo.find_one(role=document.get('role')))
-                Rsp.ok(data)
+                # 1/0
+                Rsp.ok('data')
         else:
             Rsp.login_fail()
 
