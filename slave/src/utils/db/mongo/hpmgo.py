@@ -1,6 +1,6 @@
 from .mgops import Mongo
 from bson import ObjectId,errors
-from pymongoarrow.api import find_arrow_all
+from pymongoarrow.api import find_arrow_all,aggregate_arrow_all
 from pymongoarrow.schema import Schema
 import polars as pl
 
@@ -84,8 +84,15 @@ class CRUD(object):
         return data
     
 
-    def polars_get_database(self,schema:Schema=None, skip=0, limit=100, **filter: dict):
-        table = find_arrow_all(self.col, query=filter, schema=schema, skip=skip, limit=limit)
+    def agg_to_polars(self, skip=0, limit=10, schema:Schema=None, **filter: dict)->pl.DataFrame:
+        pipeline= [
+            {"$match": filter},
+            {"$set": {"id": {"$toString": "$_id"}}},
+            {"$unset": "_id"},
+            {"$skip": int(skip)},
+            {"$limit": int(limit)}
+        ]
+        table = aggregate_arrow_all(self.col, pipeline=pipeline, schema=schema)
         return pl.from_arrow(table)
         
 

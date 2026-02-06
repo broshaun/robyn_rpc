@@ -4,10 +4,10 @@ from .server import LoginS
  
 class LoginV(RqsH):
 
-    async def post(self,**kwargs):
+    def post(self,**kwargs):
         '用户登陆'
         css = LoginS()
-        await css.sign_in(**kwargs)
+        css.sign_in(**kwargs)
         
     @JWT.jwt_sign_auth
     def delete(self,**kwargs):

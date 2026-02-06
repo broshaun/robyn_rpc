@@ -9,5 +9,6 @@
 ## 安装包
 - pip install --upgrade pip
 - pip install -r ./.pip/requirements.txt
-- cd src
-- python3 main.py
+
+## 执行代码
+- cd src && python3 main.py
