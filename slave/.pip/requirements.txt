@@ -1,0 +1,10 @@
+wrapt==1.16
+redis
+msgpack
+aiozmq==1.0.0
+
+PyJWT==2.5
+pymongo
+pyarrow
+pymongoarrow
+polars
