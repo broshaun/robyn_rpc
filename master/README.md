@@ -16,3 +16,17 @@
 #### app/config 配置项目设定
 - DEBUG=True 为开发环境
 - EBUG=False 为生产环境
+
+
+
+# 开发环境
+## Python 虚拟master环境搭建
+- python3.10 -m venv .master
+- source .master/bin/activate
+## 安装包
+- pip install --upgrade pip
+- pip install -r ./.pip/requirements.txt
+
+## 执行代码
+- cd src
+- python3 main.py

@@ -1,18 +1,29 @@
-## Python 虚拟master环境搭建
-- python3.10 -m venv .master
-- source .master/bin/activate
-
-## Python 虚拟slave环境搭建
-- python3.10 -m venv .slave
-- source .slave/bin/activate
+# Robyn RPC 开发
 
 
+## 项目简介
 
-# 
-## 安装包
-- pip install --upgrade pip
-- pip install -r ./.pip/requirements.txt
+`Robyn` 结合了 Robyn Web 框架特性与 aiozmq 的异步 ZeroMQ 通信能力，实现了轻量级、高性能的微服务 RPC 解决方案。该框架支持服务注册、发现、远程调用等核心微服务功能，适合构建高并发、低延迟的分布式系统。
 
-## 执行代码
-- cd src
-- python3 main.py
+## 核心特性
+
+- 基于 Robyn 架，支持高并发请求处理
+- 采用 ZeroMQ 作为底层通信协议，提供高效消息传递
+- 支持同步/异步 RPC 调用模式
+- 简化的服务注册与发现机制
+- 轻量级设计，易于集成和扩展
+
+
+## 项目说明
+
+本项目是基于 Robyn aiozmq 构建的异步 RPC 微服务框架，核心组件包括：
+
+- **master**：作为核心中转服务，负责 RPC 请求的路由与转发，采用全异步处理模式，确保单个 RPC 服务的阻塞不会影响整体服务可用性，支持高并发场景下的请求调度。
+
+- **slave**：RPC 服务应用开发示例，提供了服务注册、方法定义、异步调用等功能的参考实现，可作为开发新 RPC 服务的模板。
+
+
+## 联系方式
+- 项目维护者：[Shaun]
+- 邮箱：broshaun@foxmail.com
+- 问题反馈：GitHub Issues
