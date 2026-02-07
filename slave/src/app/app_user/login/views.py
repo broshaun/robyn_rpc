@@ -1,12 +1,14 @@
-from utils.middle import JWT,Rsp,RqsH
+from utils.middle import JWT,RqsH
 from .server import LoginS
+import asyncio
 
  
 class LoginV(RqsH):
 
-    def post(self,**kwargs):
+    async def post(self,**kwargs):
         '用户登陆'
         css = LoginS()
+        await asyncio.sleep(10)
         css.sign_in(**kwargs)
         
     @JWT.jwt_sign_auth
