@@ -22,10 +22,8 @@ class LoginS():
 
     def sign_in(self,email,pass_word):
         '''用户登陆'''
-        # df = self.obj.hpmgo.agg_to_polars(filter=dict(email=email),schema=schema)
-        # Rsp.ok(df)
 
-        for ss in self.obj.hpmgo.agg_to_polars(filter=dict(email=email),schema=schema).iter_rows(named=True):
+        for ss in self.obj.hpmgo.find(filter=dict(email=email),schema=schema).iter_rows(named=True):
             uid = ss.get('uid',0)
             if pass_word == ss.get('pass_word'):
                 self.obj.session.store(alias=f'super:{uid}', value=ss.get('id') ,ex=100000)
@@ -53,17 +51,17 @@ class LoginS():
         data['login_expired'] = 100000
         Rsp.ok(data)
     
-    async def sign_info(self):
+    def sign_info(self):
         '登陆信息获取'
         data = dict()
         object_id = self.obj.session.load(self.obj.alias)
-        data = await self.obj.hpmgo.find_id(object_id)
+        data = self.obj.hpmgo.find_id(object_id)
         Rsp.ok(data)
 
-    async def sign_password(self,pass_word):
+    def sign_password(self,pass_word):
         '修改登录密码'
         object_id = self.obj.session.load(self.obj.alias)
-        modified = await self.obj.hpmgo.update_one(object_id,document={'set':{'pass_word':pass_word}})
+        modified = self.obj.hpmgo.update_one_set(object_id,document={'pass_word':pass_word})
         Rsp.ok(modified,msg="密码修改成功")
 
 

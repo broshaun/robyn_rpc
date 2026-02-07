@@ -16,7 +16,7 @@ class LoginV(RqsH):
         css.sign_out(**kwargs)
     
     @JWT.jwt_sign_auth
-    def options(self,**kwargs):
+    def patch(self,**kwargs):
         '刷新验证'
         css = LoginS()
         css.sign_new(**kwargs)
@@ -25,13 +25,13 @@ class LoginV(RqsH):
     async def get(self,**kwargs):
         '登录信息'
         css = LoginS()
-        await css.sign_info(**kwargs)
+        css.sign_info(**kwargs)
 
     @JWT.jwt_sign_auth
     async def put(self,**kwargs):
         '修改登录密码'
         css = LoginS()
-        await css.sign_password(**kwargs)
+        css.sign_password(**kwargs)
         
 
 
