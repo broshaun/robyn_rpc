@@ -8,31 +8,31 @@ class RolesS():
     def __init__(self):
         self.obj = MGSuper("roles")
 
-    async def create(self,role,permission):
-        cnt = await self.obj.hpmgo.count({"role":role})
+    def create(self,role,permission):
+        cnt = self.obj.hpmgo.count(**{"role":role})
         if cnt > 0:
             Rsp.repeat("角色已存在")
-        lastid = await self.obj.hpmgo.insert(role=role,permission=permission)
+        lastid = self.obj.hpmgo.insert_one(document=dict(role=role,permission=permission))
         Rsp.ok(lastid,msg='添加角色成功')
     
-    async def delete(self,id):
-        rowcount = await self.obj.hpmgo.delete_id(id)
+    def delete(self,id):
+        rowcount = self.obj.hpmgo.delete_id(id)
         Rsp.ok(rowcount)
 
-    async def modify(self,id,**kwargs):
+    def modify(self,id,**kwargs):
         if 'role'in kwargs:
-            cnt = await self.obj.hpmgo.count({"role":kwargs.get('role')})
+            cnt = self.obj.hpmgo.count(**{"role":kwargs.get('role')})
             if cnt > 0:
                 Rsp.repeat("角色已存在")
-        rowcount = await self.obj.hpmgo.update_one_set(id,document=kwargs)
+        rowcount = self.obj.hpmgo.update_one_set(id,document=kwargs)
         Rsp.ok(rowcount)
 
-    async def find(self,id):
-        data = await self.obj.hpmgo.find_id(id)
+    def find(self,id):
+        data = self.obj.hpmgo.find_id(id)
         Rsp.ok(data)
 
-    async def browse(self,**kwargs):
-        data = await self.obj.hpmgo.find_for_total_detail(**kwargs)
+    def browse(self,skip=0,limit=10,**kwargs):
+        data = self.obj.hpmgo.find_for_total_detail(filter=kwargs,skip=skip,limit=limit)
         Rsp.ok(data)
             
         

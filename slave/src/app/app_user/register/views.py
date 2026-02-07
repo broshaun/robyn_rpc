@@ -8,7 +8,7 @@ from .server import RegisterS
 class RegisterV(RqsH):
 
     @JWT.jwt_sign_auth
-    async def post(self,**argument):
+    async def put(self,**argument):
         """用户注册"""
         css = RegisterS()
         await css.create(**argument)
@@ -20,19 +20,19 @@ class RegisterV(RqsH):
         await css.delete(**argument)
     
     @JWT.jwt_sign_auth
-    async def put(self,**argument):
+    async def patch(self,**argument):
         """用户修改"""
         css = RegisterS()
         await css.modify(**argument)
 
     @JWT.jwt_sign_auth
-    async def get(self,**argument):
+    async def post(self,**argument):
         """注册用户查看"""
         css = RegisterS()
         await css.browse(**argument)
 
     @JWT.jwt_sign_auth
-    async def options(self,**argument):
+    async def get(self,**argument):
         """用户信息"""
         css = RegisterS()
         await css.find(**argument)

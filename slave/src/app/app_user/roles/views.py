@@ -5,7 +5,7 @@ from .server import RolesS
 class RolesV(RqsH):
 
     @JWT.jwt_sign_auth
-    async def post(self,**argument):
+    async def put(self,**argument):
         """创建角色"""
         css = RolesS()
         await css.create(**argument)
@@ -17,19 +17,19 @@ class RolesV(RqsH):
         await css.delete(**argument)
     
     @JWT.jwt_sign_auth
-    async def put(self,**argument):
+    async def patch(self,**argument):
         """角色修改"""
         css = RolesS()
         await css.modify(**argument)
 
     @JWT.jwt_sign_auth
-    async def get(self,**argument):
+    async def post(self,**argument):
         """角色列表"""
         css = RolesS()
         await css.browse(**argument)
 
     @JWT.jwt_sign_auth
-    async def options(self,**argument):
+    async def get(self,**argument):
         """角色信息"""
         css = RolesS()
         await css.find(**argument)

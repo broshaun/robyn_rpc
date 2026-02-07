@@ -12,8 +12,7 @@ class RegisterS():
         cnt = self.obj.hpmgo.count(email=email)
         if cnt > 0:
             Rsp.repeat("邮箱已注册")
-        uid = self.obj.hpmgo.count()
-        lastid = self.obj.hpmgo.insert_one(document=dict(email=email,pass_word=pass_word,uid=(uid+1),role=role))
+        lastid = self.obj.hpmgo.insert_one(document=dict(email=email,pass_word=pass_word,role=role))
         Rsp.ok(lastid,msg='注册成功。')
     
     def delete(self,id):
@@ -35,19 +34,13 @@ class RegisterS():
 
     def find(self,id):
         da = self.obj.hpmgo.find_id(id)
-
-        
-
         Rsp.ok(da)
 
     def browse(self,skip=0,limit=10,**filter):
         "查看子用户"
         # filter['creator'] = self.obj.uid
-        df = self.obj.hpmgo.find(filter=filter,skip=skip,limit=limit)
-        print(df)
-        df2 = self.obj.hpmgo.find_ids(ids=df['id'])
-        # data = self.obj.hpmgo.find_for_total_detail(filter=filter,skip=skip,limit=limit)
-        Rsp.ok(df2)
+        data = self.obj.hpmgo.find_for_total_detail(filter=filter,skip=skip,limit=limit)
+        Rsp.ok(data)
             
         
         

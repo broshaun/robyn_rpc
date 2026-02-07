@@ -16,15 +16,11 @@ class JWT:
 
     
     @classmethod
-    def get_user(cls):
-        '''获取user
-        { 
-            uid : 用户标示,
-            sub : 面向用户, 比如: super、client、customer,
-            eff : 有效时间-秒
-        }
-        '''
-        return cls.Usr.get()    
+    def get_user(cls, key=None):
+        user = cls.Usr.get() or {}
+        if key is None:
+            return user
+        return user.get(key)
     
     @wrapt.decorator
     @classmethod
@@ -37,28 +33,28 @@ class JWT:
         return wrapped(*args, **kwargs)
 
     @classmethod
-    def jwt_login(cls,uid:int,sub,eff:int):
+    def jwt_login(cls,uid,eff:int,*args,**kwargs):
         ''' 登陆:
         uid 用户标示
-        sub 面向用户, 比如: super、client、customer
+        sub  access/refresh
         eff 有效时间-秒
         '''
         payload = {
-            'uid': int(uid),
-            'sub': sub,
+            'uid': str(uid),
+            "sub": "access",
             'exp': datetime.now() + timedelta(seconds=int(eff)),  # 过期时间-秒
             }
         token = jwt.encode(payload,config.SECRET_KEY,algorithm='HS256')
         return token
 
     @classmethod
-    def jwt_refresh(cls,uid:int,eff:int):
+    def jwt_refresh(cls,uid,eff:int,*args,**kwargs):
         ''' 刷新:
         uid 用户标示
         eff 有效时间-秒
         '''
         payload = {
-            'uid': int(uid),
+            'uid': str(uid),
             'sub': 'refresh',
             'exp': datetime.now() + timedelta(seconds=int(eff)),  # 过期时间
             }
@@ -74,5 +70,5 @@ class JWT:
             return jwt.decode(token, config.SECRET_KEY, algorithms=['HS256'])
         except  ExpiredSignatureError:
             Rsp.invalid_token(data="Token已过期")
-        except InvalidTokenError as e:
+        except InvalidTokenError:
             Rsp.invalid_token(data="验证不通过")

@@ -1,6 +1,5 @@
 from .mgops import Mongo
 from bson import ObjectId,errors
-from pymongoarrow.api import aggregate_arrow_all
 import polars as pl
 
 def convert_to_objectid(*ids):
