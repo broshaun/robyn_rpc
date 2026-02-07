@@ -5,11 +5,10 @@ services:
   mongod:
     image: mongo
     restart: unless-stopped
-    command: ["mongod", "--auth"]
     ports:
       - 27017:27017
-    # volumes:
-    #   - ./storage/mongo/data/db:/data/db
+    volumes:
+      - ./storage/mongo/data/db:/data/db
 
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
