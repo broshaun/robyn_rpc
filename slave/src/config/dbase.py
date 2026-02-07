@@ -3,13 +3,8 @@ from utils.db.redis import RedisClient
 from .setting import WebIP
 
 
-localhost = '192.168.64.1'
-
-
-
 class Session:
     HOST = "redis.service"
-    # HOST = localhost
     DBPWD = "su7vu9xyzlakklmo121s"
     PORT = 6379
     DB = 3
@@ -18,7 +13,6 @@ class Session:
 
 class RPC:
     HOST = "redis.service"
-    # HOST = localhost
     DBPWD = "su7vu9xyzlakklmo121s"
     PORT = 6379
     DB = 6
@@ -34,13 +28,12 @@ class RPC:
     @classmethod
     def RPCStore(cls):
         '存储示例'
-        success = RedisClient(host=cls.HOST,port=cls.PORT,db=cls.DB,password=cls.DBPWD).store(alias='slave',value=f'tcp://{localhost}:4242')
+        success = RedisClient(host=cls.HOST,port=cls.PORT,db=cls.DB,password=cls.DBPWD).store(alias='slave',value=f'tcp://rpc_slave.local:4242')
         if success:
             print("RPCSlave存储成功")
 
 class MongoDB():
     HOST = "mongo.service"
-    # HOST = localhost
     PORT = 27017
     DBUSER = 'root'
     DBPWD = 'you_paseworkey'
