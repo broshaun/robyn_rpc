@@ -12,6 +12,11 @@ app.serve_directory(
     directory_path= config.HTML,
     index_file="index.html",
 )
+app.serve_directory(
+    route="/dist",
+    directory_path= config.DIST,
+    index_file="index.html",
+)
 
 app.serve_directory(
     route="/logs",

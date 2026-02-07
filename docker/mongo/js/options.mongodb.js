@@ -3,8 +3,6 @@ use('slave');
 
 db.getCollection('options').drop();
 
-
-
 // 1. 性别选项
 db.getCollection('options').insertOne({
     label: '性别: ', organize: 'SEX',
