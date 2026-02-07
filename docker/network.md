@@ -3,6 +3,8 @@
 - docker network create -d overlay --attachable swarm-overlay-network
 - docker pull busynet
 - docker service create -td --name busybox-global --mode global --network swarm-overlay-network busybox
+- docker service rm busybox-global
+
 
 
 

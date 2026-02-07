@@ -1,5 +1,4 @@
-FROM continuumio/miniconda3:22.11.1-alpine
-
+FROM library/python:3.10-slim
 
 ENV LANG=C.UTF-8 
 ENV TZ=Asia/Shanghai

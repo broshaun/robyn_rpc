@@ -7,4 +7,5 @@ PyJWT==2.5
 pymongo
 pyarrow
 pymongoarrow
-polars
+# polars
+polars-lts-cpu

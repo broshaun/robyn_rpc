@@ -14,7 +14,6 @@ services:
         aliases:
           - redis.service
 
-
 networks:
   swarm-overlay-network:
     external: true
