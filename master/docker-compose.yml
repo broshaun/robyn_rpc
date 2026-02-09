@@ -25,10 +25,7 @@ services:
     restart: unless-stopped
     ports:
       - "6379:6379"
-    command: >
-      redis-server
-      --appendonly yes
-      --requirepass su7vu9xyzlakklmo121s
+    command: redis-server --appendonly yes --requirepass su7vu9xyzlakklmo121s
     networks:
       swarm-overlay-network:
         aliases:
