@@ -1,4 +1,4 @@
-from utils.db.redis import AsynClient
+from utils.db.redis import AsynClient,RedisClient
 
 
 class RPC:

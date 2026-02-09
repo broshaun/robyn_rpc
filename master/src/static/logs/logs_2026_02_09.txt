@@ -1,0 +1,420 @@
+----------------------------------------------------------------------------------------------------
+[2026-02-09 13:34:29] 异常发生:
+异常位置: <function Router.__init__.<locals>._ at 0xffffbaff7b50>
+异常类型: OSError
+异常详情: [Errno 22] Invalid argument (addr='192.168.64.1')
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 489, in connect
+    self._zmq_sock.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/zmq/sugar/socket.py", line 346, in connect
+    super().connect(addr)
+  File "zmq/backend/cython/_zmq.py", line 1036, in zmq.backend.cython._zmq.Socket.connect
+  File "zmq/backend/cython/_zmq.py", line 190, in zmq.backend.cython._zmq._check_rc
+zmq.error.ZMQError: Invalid argument (addr='192.168.64.1')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/usr/src/utils/middle/router.py", line 26, in _
+    result = await result
+  File "/usr/src/app/rpclient/rpc_view.py", line 14, in post
+    await rpclient.run(path,method,headers,kwargs)
+  File "/usr/src/utils/rpc/rpclient.py", line 29, in run
+    client = await aiozmq.rpc.connect_rpc(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/rpc/rpc.py", line 69, in connect_rpc
+    transp, proto = await create_zmq_connection(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 116, in create_zmq_connection
+    await transport.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 491, in connect
+    raise OSError(exc.errno, exc.strerror) from exc
+OSError: [Errno 22] Invalid argument (addr='192.168.64.1')
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-02-09 13:34:30] 异常发生:
+异常位置: <function Router.__init__.<locals>._ at 0xffffbaff7b50>
+异常类型: OSError
+异常详情: [Errno 22] Invalid argument (addr='192.168.64.1')
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 489, in connect
+    self._zmq_sock.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/zmq/sugar/socket.py", line 346, in connect
+    super().connect(addr)
+  File "zmq/backend/cython/_zmq.py", line 1036, in zmq.backend.cython._zmq.Socket.connect
+  File "zmq/backend/cython/_zmq.py", line 190, in zmq.backend.cython._zmq._check_rc
+zmq.error.ZMQError: Invalid argument (addr='192.168.64.1')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/usr/src/utils/middle/router.py", line 26, in _
+    result = await result
+  File "/usr/src/app/rpclient/rpc_view.py", line 14, in post
+    await rpclient.run(path,method,headers,kwargs)
+  File "/usr/src/utils/rpc/rpclient.py", line 29, in run
+    client = await aiozmq.rpc.connect_rpc(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/rpc/rpc.py", line 69, in connect_rpc
+    transp, proto = await create_zmq_connection(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 116, in create_zmq_connection
+    await transport.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 491, in connect
+    raise OSError(exc.errno, exc.strerror) from exc
+OSError: [Errno 22] Invalid argument (addr='192.168.64.1')
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-02-09 13:34:30] 异常发生:
+异常位置: <function Router.__init__.<locals>._ at 0xffffbaff7b50>
+异常类型: OSError
+异常详情: [Errno 22] Invalid argument (addr='192.168.64.1')
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 489, in connect
+    self._zmq_sock.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/zmq/sugar/socket.py", line 346, in connect
+    super().connect(addr)
+  File "zmq/backend/cython/_zmq.py", line 1036, in zmq.backend.cython._zmq.Socket.connect
+  File "zmq/backend/cython/_zmq.py", line 190, in zmq.backend.cython._zmq._check_rc
+zmq.error.ZMQError: Invalid argument (addr='192.168.64.1')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/usr/src/utils/middle/router.py", line 26, in _
+    result = await result
+  File "/usr/src/app/rpclient/rpc_view.py", line 14, in post
+    await rpclient.run(path,method,headers,kwargs)
+  File "/usr/src/utils/rpc/rpclient.py", line 29, in run
+    client = await aiozmq.rpc.connect_rpc(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/rpc/rpc.py", line 69, in connect_rpc
+    transp, proto = await create_zmq_connection(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 116, in create_zmq_connection
+    await transport.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 491, in connect
+    raise OSError(exc.errno, exc.strerror) from exc
+OSError: [Errno 22] Invalid argument (addr='192.168.64.1')
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-02-09 13:34:31] 异常发生:
+异常位置: <function Router.__init__.<locals>._ at 0xffffbaff7b50>
+异常类型: OSError
+异常详情: [Errno 22] Invalid argument (addr='192.168.64.1')
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 489, in connect
+    self._zmq_sock.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/zmq/sugar/socket.py", line 346, in connect
+    super().connect(addr)
+  File "zmq/backend/cython/_zmq.py", line 1036, in zmq.backend.cython._zmq.Socket.connect
+  File "zmq/backend/cython/_zmq.py", line 190, in zmq.backend.cython._zmq._check_rc
+zmq.error.ZMQError: Invalid argument (addr='192.168.64.1')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/usr/src/utils/middle/router.py", line 26, in _
+    result = await result
+  File "/usr/src/app/rpclient/rpc_view.py", line 14, in post
+    await rpclient.run(path,method,headers,kwargs)
+  File "/usr/src/utils/rpc/rpclient.py", line 29, in run
+    client = await aiozmq.rpc.connect_rpc(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/rpc/rpc.py", line 69, in connect_rpc
+    transp, proto = await create_zmq_connection(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 116, in create_zmq_connection
+    await transport.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 491, in connect
+    raise OSError(exc.errno, exc.strerror) from exc
+OSError: [Errno 22] Invalid argument (addr='192.168.64.1')
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-02-09 13:35:36] 异常发生:
+异常位置: <function Router.__init__.<locals>._ at 0xffffbaff7b50>
+异常类型: OSError
+异常详情: [Errno 22] Invalid argument (addr='192.168.64.1')
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 489, in connect
+    self._zmq_sock.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/zmq/sugar/socket.py", line 346, in connect
+    super().connect(addr)
+  File "zmq/backend/cython/_zmq.py", line 1036, in zmq.backend.cython._zmq.Socket.connect
+  File "zmq/backend/cython/_zmq.py", line 190, in zmq.backend.cython._zmq._check_rc
+zmq.error.ZMQError: Invalid argument (addr='192.168.64.1')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/usr/src/utils/middle/router.py", line 26, in _
+    result = await result
+  File "/usr/src/app/rpclient/rpc_view.py", line 14, in post
+    await rpclient.run(path,method,headers,kwargs)
+  File "/usr/src/utils/rpc/rpclient.py", line 29, in run
+    client = await aiozmq.rpc.connect_rpc(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/rpc/rpc.py", line 69, in connect_rpc
+    transp, proto = await create_zmq_connection(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 116, in create_zmq_connection
+    await transport.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 491, in connect
+    raise OSError(exc.errno, exc.strerror) from exc
+OSError: [Errno 22] Invalid argument (addr='192.168.64.1')
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-02-09 13:35:37] 异常发生:
+异常位置: <function Router.__init__.<locals>._ at 0xffffbaff7b50>
+异常类型: OSError
+异常详情: [Errno 22] Invalid argument (addr='192.168.64.1')
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 489, in connect
+    self._zmq_sock.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/zmq/sugar/socket.py", line 346, in connect
+    super().connect(addr)
+  File "zmq/backend/cython/_zmq.py", line 1036, in zmq.backend.cython._zmq.Socket.connect
+  File "zmq/backend/cython/_zmq.py", line 190, in zmq.backend.cython._zmq._check_rc
+zmq.error.ZMQError: Invalid argument (addr='192.168.64.1')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/usr/src/utils/middle/router.py", line 26, in _
+    result = await result
+  File "/usr/src/app/rpclient/rpc_view.py", line 14, in post
+    await rpclient.run(path,method,headers,kwargs)
+  File "/usr/src/utils/rpc/rpclient.py", line 29, in run
+    client = await aiozmq.rpc.connect_rpc(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/rpc/rpc.py", line 69, in connect_rpc
+    transp, proto = await create_zmq_connection(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 116, in create_zmq_connection
+    await transport.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 491, in connect
+    raise OSError(exc.errno, exc.strerror) from exc
+OSError: [Errno 22] Invalid argument (addr='192.168.64.1')
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-02-09 13:35:37] 异常发生:
+异常位置: <function Router.__init__.<locals>._ at 0xffffbaff7b50>
+异常类型: OSError
+异常详情: [Errno 22] Invalid argument (addr='192.168.64.1')
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 489, in connect
+    self._zmq_sock.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/zmq/sugar/socket.py", line 346, in connect
+    super().connect(addr)
+  File "zmq/backend/cython/_zmq.py", line 1036, in zmq.backend.cython._zmq.Socket.connect
+  File "zmq/backend/cython/_zmq.py", line 190, in zmq.backend.cython._zmq._check_rc
+zmq.error.ZMQError: Invalid argument (addr='192.168.64.1')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/usr/src/utils/middle/router.py", line 26, in _
+    result = await result
+  File "/usr/src/app/rpclient/rpc_view.py", line 14, in post
+    await rpclient.run(path,method,headers,kwargs)
+  File "/usr/src/utils/rpc/rpclient.py", line 29, in run
+    client = await aiozmq.rpc.connect_rpc(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/rpc/rpc.py", line 69, in connect_rpc
+    transp, proto = await create_zmq_connection(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 116, in create_zmq_connection
+    await transport.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 491, in connect
+    raise OSError(exc.errno, exc.strerror) from exc
+OSError: [Errno 22] Invalid argument (addr='192.168.64.1')
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-02-09 13:36:56] 异常发生:
+异常位置: <function Router.__init__.<locals>._ at 0xffffbb657b50>
+异常类型: OSError
+异常详情: [Errno 22] Invalid argument (addr='192.168.64.1:4242')
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 489, in connect
+    self._zmq_sock.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/zmq/sugar/socket.py", line 346, in connect
+    super().connect(addr)
+  File "zmq/backend/cython/_zmq.py", line 1036, in zmq.backend.cython._zmq.Socket.connect
+  File "zmq/backend/cython/_zmq.py", line 190, in zmq.backend.cython._zmq._check_rc
+zmq.error.ZMQError: Invalid argument (addr='192.168.64.1:4242')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/usr/src/utils/middle/router.py", line 26, in _
+    result = await result
+  File "/usr/src/app/rpclient/rpc_view.py", line 14, in post
+    await rpclient.run(path,method,headers,kwargs)
+  File "/usr/src/utils/rpc/rpclient.py", line 29, in run
+    client = await aiozmq.rpc.connect_rpc(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/rpc/rpc.py", line 69, in connect_rpc
+    transp, proto = await create_zmq_connection(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 116, in create_zmq_connection
+    await transport.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 491, in connect
+    raise OSError(exc.errno, exc.strerror) from exc
+OSError: [Errno 22] Invalid argument (addr='192.168.64.1:4242')
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-02-09 13:36:57] 异常发生:
+异常位置: <function Router.__init__.<locals>._ at 0xffffbb657b50>
+异常类型: OSError
+异常详情: [Errno 22] Invalid argument (addr='192.168.64.1:4242')
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 489, in connect
+    self._zmq_sock.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/zmq/sugar/socket.py", line 346, in connect
+    super().connect(addr)
+  File "zmq/backend/cython/_zmq.py", line 1036, in zmq.backend.cython._zmq.Socket.connect
+  File "zmq/backend/cython/_zmq.py", line 190, in zmq.backend.cython._zmq._check_rc
+zmq.error.ZMQError: Invalid argument (addr='192.168.64.1:4242')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/usr/src/utils/middle/router.py", line 26, in _
+    result = await result
+  File "/usr/src/app/rpclient/rpc_view.py", line 14, in post
+    await rpclient.run(path,method,headers,kwargs)
+  File "/usr/src/utils/rpc/rpclient.py", line 29, in run
+    client = await aiozmq.rpc.connect_rpc(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/rpc/rpc.py", line 69, in connect_rpc
+    transp, proto = await create_zmq_connection(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 116, in create_zmq_connection
+    await transport.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 491, in connect
+    raise OSError(exc.errno, exc.strerror) from exc
+OSError: [Errno 22] Invalid argument (addr='192.168.64.1:4242')
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-02-09 13:36:58] 异常发生:
+异常位置: <function Router.__init__.<locals>._ at 0xffffbb657b50>
+异常类型: OSError
+异常详情: [Errno 22] Invalid argument (addr='192.168.64.1:4242')
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 489, in connect
+    self._zmq_sock.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/zmq/sugar/socket.py", line 346, in connect
+    super().connect(addr)
+  File "zmq/backend/cython/_zmq.py", line 1036, in zmq.backend.cython._zmq.Socket.connect
+  File "zmq/backend/cython/_zmq.py", line 190, in zmq.backend.cython._zmq._check_rc
+zmq.error.ZMQError: Invalid argument (addr='192.168.64.1:4242')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/usr/src/utils/middle/router.py", line 26, in _
+    result = await result
+  File "/usr/src/app/rpclient/rpc_view.py", line 14, in post
+    await rpclient.run(path,method,headers,kwargs)
+  File "/usr/src/utils/rpc/rpclient.py", line 29, in run
+    client = await aiozmq.rpc.connect_rpc(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/rpc/rpc.py", line 69, in connect_rpc
+    transp, proto = await create_zmq_connection(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 116, in create_zmq_connection
+    await transport.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 491, in connect
+    raise OSError(exc.errno, exc.strerror) from exc
+OSError: [Errno 22] Invalid argument (addr='192.168.64.1:4242')
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-02-09 13:37:08] 异常发生:
+异常位置: <function Router.__init__.<locals>._ at 0xffffbb657b50>
+异常类型: OSError
+异常详情: [Errno 22] Invalid argument (addr='192.168.64.1:4242')
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 489, in connect
+    self._zmq_sock.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/zmq/sugar/socket.py", line 346, in connect
+    super().connect(addr)
+  File "zmq/backend/cython/_zmq.py", line 1036, in zmq.backend.cython._zmq.Socket.connect
+  File "zmq/backend/cython/_zmq.py", line 190, in zmq.backend.cython._zmq._check_rc
+zmq.error.ZMQError: Invalid argument (addr='192.168.64.1:4242')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/usr/src/utils/middle/router.py", line 26, in _
+    result = await result
+  File "/usr/src/app/rpclient/rpc_view.py", line 14, in post
+    await rpclient.run(path,method,headers,kwargs)
+  File "/usr/src/utils/rpc/rpclient.py", line 29, in run
+    client = await aiozmq.rpc.connect_rpc(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/rpc/rpc.py", line 69, in connect_rpc
+    transp, proto = await create_zmq_connection(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 116, in create_zmq_connection
+    await transport.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 491, in connect
+    raise OSError(exc.errno, exc.strerror) from exc
+OSError: [Errno 22] Invalid argument (addr='192.168.64.1:4242')
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-02-09 13:37:09] 异常发生:
+异常位置: <function Router.__init__.<locals>._ at 0xffffbb657b50>
+异常类型: OSError
+异常详情: [Errno 22] Invalid argument (addr='192.168.64.1:4242')
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 489, in connect
+    self._zmq_sock.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/zmq/sugar/socket.py", line 346, in connect
+    super().connect(addr)
+  File "zmq/backend/cython/_zmq.py", line 1036, in zmq.backend.cython._zmq.Socket.connect
+  File "zmq/backend/cython/_zmq.py", line 190, in zmq.backend.cython._zmq._check_rc
+zmq.error.ZMQError: Invalid argument (addr='192.168.64.1:4242')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/usr/src/utils/middle/router.py", line 26, in _
+    result = await result
+  File "/usr/src/app/rpclient/rpc_view.py", line 14, in post
+    await rpclient.run(path,method,headers,kwargs)
+  File "/usr/src/utils/rpc/rpclient.py", line 29, in run
+    client = await aiozmq.rpc.connect_rpc(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/rpc/rpc.py", line 69, in connect_rpc
+    transp, proto = await create_zmq_connection(
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 116, in create_zmq_connection
+    await transport.connect(endpoint)
+  File "/usr/local/lib/python3.10/site-packages/aiozmq/core.py", line 491, in connect
+    raise OSError(exc.errno, exc.strerror) from exc
+OSError: [Errno 22] Invalid argument (addr='192.168.64.1:4242')
+
+----------------------------------------------------------------------------------------------------

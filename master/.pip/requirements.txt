@@ -2,6 +2,6 @@ wrapt==1.16
 msgpack
 aiozmq==1.0.0
 robyn==0.72.2
-redis==7
+redis
 
 pillow==12.0.0

@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+
+  redis:
+    image: redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes --requirepass su7vu9xyzlakklmo121s
+    networks:
+      swarm-overlay-network:
+        aliases:
+          - redis.service
+
+networks:
+  swarm-overlay-network:
+    external: true
+    name: swarm-overlay-network
