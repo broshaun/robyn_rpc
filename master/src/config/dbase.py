@@ -1,23 +1,22 @@
-from utils.db.redis import AsynClient,RedisClient
+from utils.db.redis import AsynClient
 
 
-class RPC:
-    HOST = "redis.service"
-    DBPWD = "su7vu9xyzlakklmo121s"
-    PORT = 6379
-    DB = 6
+class RPCServer:
+    def __init__(self,host,port,db,password):
+        self.host = host
+        self.port = port
+        self.db = db
+        self.password = password
 
-    @classmethod
-    async def RPCServer(cls,alias:str):
+    async def HOST(self,alias:str):
         '''微服务地址'''
-        endpoint = await AsynClient(host=cls.HOST,port=cls.PORT,db=cls.DB,password=cls.DBPWD).load(alias)
+        endpoint = await AsynClient(host=self.host, port=self.port, db=self.db, password=self.password).load(alias)
         if isinstance(endpoint, bytes):
             endpoint = endpoint.decode('utf-8')
         return endpoint
         
-    @classmethod
-    async def RPCStore(cls):
+    async def Store(self,alias,location):
         '存储示例'
-        success = await AsynClient(host=cls.HOST,port=cls.PORT,db=cls.DB,password=cls.DBPWD).store(alias='super',value='tcp://127.0.0.1:4242')
+        success = await AsynClient(host=self.host, port=self.port, db=self.db, password=self.password).store(alias, value=location)
         if success:
             print("RPCSuper存储成功")

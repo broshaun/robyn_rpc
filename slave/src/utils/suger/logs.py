@@ -13,7 +13,7 @@ def error(e: Exception, wrapped: str = ""):
     today = datetime.now().strftime("%Y_%m_%d")
 
     file_name = f"logs_{today}.txt"
-    log_file_path = Path(config.LOGS, file_name).resolve()
+    log_file_path = Path(config.setting.LOGS, file_name).resolve()
     log_file_path.parent.mkdir(parents=True, exist_ok=True)
 
     stack_trace = traceback.format_exc()

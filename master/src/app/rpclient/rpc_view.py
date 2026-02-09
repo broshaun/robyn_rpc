@@ -9,7 +9,7 @@ class RPCView(RqsH):
         path = self.request.path_params["sub_path"]
         method = self.request.method.lower()
         headers = {'Authorization':self.request.headers.get('Authorization')}
-        rpclient = RPClient(await RPC.RPCServer(alias=rpc_server))
+        rpclient = RPClient(await RPC.HOST(alias=rpc_server))
         await rpclient.run(path,method,headers,kwargs)
 
     async def delete(self,**kwargs):
@@ -17,7 +17,7 @@ class RPCView(RqsH):
         path = self.request.path_params["sub_path"]
         method = self.request.method.lower()
         headers = {'Authorization':self.request.headers.get('Authorization')}
-        rpclient = RPClient(await RPC.RPCServer(alias=rpc_server))
+        rpclient = RPClient(await RPC.HOST(alias=rpc_server))
         await rpclient.run(path,method,headers,kwargs)
 
     async def options(self,**kwargs):
@@ -25,7 +25,7 @@ class RPCView(RqsH):
         path = self.request.path_params["sub_path"]
         method = self.request.method.lower()
         headers = {'Authorization':self.request.headers.get('Authorization')}
-        rpclient = RPClient(await RPC.RPCServer(alias=rpc_server))
+        rpclient = RPClient(await RPC.HOST(alias=rpc_server))
         await rpclient.run(path,method,headers,kwargs)
 
     async def get(self,**kwargs):
@@ -33,7 +33,7 @@ class RPCView(RqsH):
         path = self.request.path_params["sub_path"]
         method = self.request.method.lower()
         headers = {'Authorization':self.request.headers.get('Authorization')}
-        rpclient = RPClient(await RPC.RPCServer(alias=rpc_server))
+        rpclient = RPClient(await RPC.HOST(alias=rpc_server))
         await rpclient.run(path,method,headers,kwargs)
 
     async def put(self,**kwargs):
@@ -41,7 +41,7 @@ class RPCView(RqsH):
         path = self.request.path_params["sub_path"]
         method = self.request.method.lower()
         headers = {'Authorization':self.request.headers.get('Authorization')}
-        rpclient = RPClient(await RPC.RPCServer(alias=rpc_server))
+        rpclient = RPClient(await RPC.HOST(alias=rpc_server))
         await rpclient.run(path,method,headers,kwargs)
     
     async def patch(self,**kwargs):
@@ -49,5 +49,5 @@ class RPCView(RqsH):
         path = self.request.path_params["sub_path"]
         method = self.request.method.lower()
         headers = {'Authorization':self.request.headers.get('Authorization')}
-        rpclient = RPClient(await RPC.RPCServer(alias=rpc_server))
+        rpclient = RPClient(await RPC.HOST(alias=rpc_server))
         await rpclient.run(path,method,headers,kwargs)

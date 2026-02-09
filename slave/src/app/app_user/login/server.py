@@ -22,7 +22,6 @@ class LoginS():
 
     def sign_in(self,email,pass_word):
         '''用户登陆'''
-        # Rsp.ok('data')
         for ss in self.obj.hpmgo.find(filter=dict(email=email),schema=schema).iter_rows(named=True):
             if pass_word == ss.get('pass_word'):
                 self.obj.session.store(alias=ss.get('id'), value=f'super' ,ex=100000)

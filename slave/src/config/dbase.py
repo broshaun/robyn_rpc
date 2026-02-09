@@ -1,54 +1,22 @@
-from utils.db.mongo import DBOpen
 from utils.db.redis import RedisClient
-from .setting import WebIP
 
 
-local = {
-    'ip': '192.168.64.1',
-    'slave': 'localhost'
-}
+class RPCServer:
+    def __init__(self,host,port,db,password):
+        self.host = host
+        self.port = port
+        self.db = db
+        self.password = password
 
-
-server = {
-    'redis': 'redis.service',
-    'slave': 'rpc_slave.local',
-}
-
-
-class Session:
-    HOST = local['ip']
-    DBPWD = "su7vu9xyzlakklmo121s"
-    PORT = 6379
-    DB = 3
-    def __new__(cls):
-        return RedisClient(host=cls.HOST,port=cls.PORT,db=cls.DB,password=cls.DBPWD)
-
-class RPC:
-    HOST = local['ip']
-    DBPWD = "su7vu9xyzlakklmo121s"
-    PORT = 6379
-    DB = 6
-
-    @classmethod
-    def RPCServer(cls,alias:str):
+    def HOST(self,alias:str):
         '''微服务地址'''
-        endpoint = RedisClient(host=cls.HOST,port=cls.PORT,db=cls.DB,password=cls.DBPWD).load(alias)
+        endpoint = RedisClient(host=self.host, port=self.port, db=self.db, password=self.password).load(alias)
         if isinstance(endpoint, bytes):
             endpoint = endpoint.decode('utf-8')
         return endpoint
         
-    @classmethod
-    def RPCStore(cls):
+    def Store(self,alias,location):
         '存储示例'
-        success = RedisClient(host=cls.HOST,port=cls.PORT,db=cls.DB,password=cls.DBPWD).store(alias='slave',value=f'tcp://192.168.64.1:4242')
+        success = RedisClient(host=self.host, port=self.port, db=self.db, password=self.password).store(alias, value=location)
         if success:
-            print("RPCSlave存储成功")
-
-class MongoDB():
-    HOST = local['ip']
-    PORT = 27017
-    DBUSER = 'root'
-    DBPWD = 'you_paseworkey'
-    def __new__(cls,database):
-        return DBOpen(host=cls.HOST,port=cls.PORT,user=cls.DBUSER,password=cls.DBPWD,database=database)
-
+            print("RPCSuper存储成功")

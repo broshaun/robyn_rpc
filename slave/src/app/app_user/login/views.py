@@ -5,10 +5,9 @@ import asyncio
  
 class LoginV(RqsH):
 
-    async def post(self,**kwargs):
+    def post(self,**kwargs):
         '用户登陆'
         css = LoginS()
-        await asyncio.sleep(10)
         css.sign_in(**kwargs)
         
     @JWT.jwt_sign_auth
