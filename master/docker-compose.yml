@@ -1,6 +1,7 @@
-version: '3.8'
+version: "3.8"
 
 services:
+
   rpc_master:
     image: robyn:master
     build:
@@ -12,19 +13,28 @@ services:
       - ./src:/usr/src:ro
       - ./src/static/logs:/usr/src/static/logs:rw
       - ./src/static/image:/usr/src/static/image:rw
-      
     working_dir: /usr/src
     command: python3 -u main.py --workers 4
-      
     networks:
       swarm-overlay-network:
         aliases:
           - rpc_master.local
 
+  redis:
+    image: redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: >
+      redis-server
+      --appendonly yes
+      --requirepass su7vu9xyzlakklmo121s
+    networks:
+      swarm-overlay-network:
+        aliases:
+          - redis.service
 
 networks:
   swarm-overlay-network:
     external: true
-    name: swarm-overlay-network 
-
-
+    name: swarm-overlay-network
