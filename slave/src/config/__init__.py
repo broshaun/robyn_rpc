@@ -11,7 +11,7 @@ RPCServer(
     host="192.168.64.1",
     port = 6379, db = 6,
     password="su7vu9xyzlakklmo121s"
-).Store(alias='slave',location='tcp://localhost:4242')
+).Store(alias='slave',location='tcp://192.168.64.1:4242')
 
 
 class Session:
