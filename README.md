@@ -30,11 +30,3 @@
 
 
 
-
-# 开发环境
-
-## Python 虚拟slave环境搭建
-- python3.10 -m venv .venv
-
-## 
-- source .venv/bin/activate
