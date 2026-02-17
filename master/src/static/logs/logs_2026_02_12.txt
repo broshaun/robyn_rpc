@@ -1,0 +1,120 @@
+----------------------------------------------------------------------------------------------------
+[2026-02-12 12:31:57] 异常发生:
+异常位置: <function Router.__init__.<locals>._ at 0xffffb098bd90>
+异常类型: TypeError
+异常详情: Object of type bytes is not JSON serializable
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/usr/src/utils/middle/router.py", line 17, in _
+    result = await result
+  File "/usr/src/app/rpclient/rpc_view.py", line 37, in get
+    await rpclient.run(path,method,headers,kwargs)
+  File "/usr/src/utils/rpc/rpclient.py", line 34, in run
+    result = await client.call.echo(path,method,headers,kwargs)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 408, in wait_for
+    return await fut
+TypeError: Object of type bytes is not JSON serializable
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-02-12 12:32:34] 异常发生:
+异常位置: <function Router.__init__.<locals>._ at 0xffffb098bd90>
+异常类型: TypeError
+异常详情: Object of type bytes is not JSON serializable
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/usr/src/utils/middle/router.py", line 17, in _
+    result = await result
+  File "/usr/src/app/rpclient/rpc_view.py", line 37, in get
+    await rpclient.run(path,method,headers,kwargs)
+  File "/usr/src/utils/rpc/rpclient.py", line 34, in run
+    result = await client.call.echo(path,method,headers,kwargs)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 408, in wait_for
+    return await fut
+TypeError: Object of type bytes is not JSON serializable
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-02-12 12:32:35] 异常发生:
+异常位置: <function Router.__init__.<locals>._ at 0xffffb098bd90>
+异常类型: TypeError
+异常详情: Object of type bytes is not JSON serializable
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/usr/src/utils/middle/router.py", line 17, in _
+    result = await result
+  File "/usr/src/app/rpclient/rpc_view.py", line 37, in get
+    await rpclient.run(path,method,headers,kwargs)
+  File "/usr/src/utils/rpc/rpclient.py", line 34, in run
+    result = await client.call.echo(path,method,headers,kwargs)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 408, in wait_for
+    return await fut
+TypeError: Object of type bytes is not JSON serializable
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-02-12 12:33:58] 异常发生:
+异常位置: <function Router.__init__.<locals>._ at 0xffffb098bd90>
+异常类型: TypeError
+异常详情: Object of type bytes is not JSON serializable
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/usr/src/utils/middle/router.py", line 17, in _
+    result = await result
+  File "/usr/src/app/rpclient/rpc_view.py", line 37, in get
+    await rpclient.run(path,method,headers,kwargs)
+  File "/usr/src/utils/rpc/rpclient.py", line 34, in run
+    result = await client.call.echo(path,method,headers,kwargs)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 408, in wait_for
+    return await fut
+TypeError: Object of type bytes is not JSON serializable
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-02-12 12:34:37] 异常发生:
+异常位置: <function Router.__init__.<locals>._ at 0xffffb098bd90>
+异常类型: TypeError
+异常详情: Object of type bytes is not JSON serializable
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/usr/src/utils/middle/router.py", line 17, in _
+    result = await result
+  File "/usr/src/app/rpclient/rpc_view.py", line 37, in get
+    await rpclient.run(path,method,headers,kwargs)
+  File "/usr/src/utils/rpc/rpclient.py", line 34, in run
+    result = await client.call.echo(path,method,headers,kwargs)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 408, in wait_for
+    return await fut
+TypeError: Object of type bytes is not JSON serializable
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-02-12 12:37:39] 异常发生:
+异常位置: <function Router.__init__.<locals>._ at 0xffffb098bd90>
+异常类型: TypeError
+异常详情: Object of type bytes is not JSON serializable
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/usr/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/usr/src/utils/middle/router.py", line 17, in _
+    result = await result
+  File "/usr/src/app/rpclient/rpc_view.py", line 37, in get
+    await rpclient.run(path,method,headers,kwargs)
+  File "/usr/src/utils/rpc/rpclient.py", line 34, in run
+    result = await client.call.echo(path,method,headers,kwargs)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 408, in wait_for
+    return await fut
+TypeError: Object of type bytes is not JSON serializable
+
+----------------------------------------------------------------------------------------------------

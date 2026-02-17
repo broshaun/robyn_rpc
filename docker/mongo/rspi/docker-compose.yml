@@ -1,0 +1,25 @@
+version: "3.1"
+# 树莓派4部署
+services:
+  mongo:
+    image: arm64v8/mongo:4.4.18
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+      
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: you_paseworkey
+    volumes:
+      - ./storage/mongo/data/db:/data/db
+
+    networks:
+      swarm-overlay-network:
+        aliases:
+          - mongo.service
+
+networks:
+  swarm-overlay-network:
+    external: true
+    name: swarm-overlay-network
+
