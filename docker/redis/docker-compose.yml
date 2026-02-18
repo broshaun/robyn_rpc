@@ -8,12 +8,12 @@ services:
     ports:
       - "6379:6379"
     command: redis-server --appendonly yes --requirepass su7vu9xyzlakklmo121s
-    networks:
-      swarm-overlay-network:
-        aliases:
-          - redis.service
+#     networks:
+#       swarm-overlay-network:
+#         aliases:
+#           - redis.service
 
-networks:
-  swarm-overlay-network:
-    external: true
-    name: swarm-overlay-network
+# networks:
+#   swarm-overlay-network:
+#     external: true
+#     name: swarm-overlay-network

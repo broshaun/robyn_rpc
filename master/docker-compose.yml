@@ -15,23 +15,29 @@ services:
       - ./src/static/image:/usr/src/static/image:rw
     working_dir: /usr/src
     command: python3 -u main.py --workers 4
+
     networks:
-      swarm-overlay-network:
+      bridge-network:
         aliases:
           - rpc_master.local
 
-  # redis:
-  #   image: redis
-  #   restart: unless-stopped
-  #   ports:
-  #     - "6379:6379"
-  #   command: redis-server --appendonly yes --requirepass su7vu9xyzlakklmo121s
-  #   networks:
-  #     swarm-overlay-network:
-  #       aliases:
-  #         - redis.service
+  redis:
+    image: redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes --requirepass su7vu9xyzlakklmo121s
+    networks:
+      bridge-network:
+        aliases:
+          - redis.service
 
 networks:
-  swarm-overlay-network:
-    external: true
-    name: swarm-overlay-network
+  bridge-network:
+    driver: bridge
+    name: bridge-network
+
+# networks:
+#   swarm-overlay-network:
+#     external: true
+#     name: swarm-overlay-network
