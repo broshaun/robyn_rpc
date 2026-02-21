@@ -10,8 +10,6 @@ services:
     ports:
       - "5015:5015"
 
-    environment:
-      - RUST_LOG=robyn=info,actix_server=info,actix_web=info,actix_http=off
 
     volumes:
       - ./src:/usr/src:ro
