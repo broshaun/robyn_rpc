@@ -9,28 +9,23 @@ services:
     restart: unless-stopped
     ports:
       - "5015:5015"
+
+    environment:
+      - RUST_LOG=robyn=info,actix_server=info,actix_web=info,actix_http=off
+
     volumes:
       - ./src:/usr/src:ro
       - ./src/static/logs:/usr/src/static/logs:rw
       - ./src/static/image:/usr/src/static/image:rw
+
     working_dir: /usr/src
     command: python3 -u main.py --workers 4
 
     networks:
       bridge-network:
         aliases:
-          - rpc_master.local
+          - master.local
 
-  redis:
-    image: redis
-    restart: unless-stopped
-    ports:
-      - "6379:6379"
-    command: redis-server --appendonly yes --requirepass su7vu9xyzlakklmo121s
-    networks:
-      bridge-network:
-        aliases:
-          - redis.service
 
 networks:
   bridge-network:

@@ -14,12 +14,12 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: you_paseworkey
 
-    networks:
-      swarm-overlay-network:
-        aliases:
-          - mongo.service
+#     networks:
+#       swarm-overlay-network:
+#         aliases:
+#           - mongo.service
 
-networks:
-  swarm-overlay-network:
-    external: true
-    name: swarm-overlay-network
+# networks:
+#   swarm-overlay-network:
+#     external: true
+#     name: swarm-overlay-network
