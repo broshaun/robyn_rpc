@@ -1,0 +1,196 @@
+----------------------------------------------------------------------------------------------------
+[2026-03-07 16:44:29] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x102d16950>
+异常类型: AttributeError
+异常详情: 'NoneType' object has no attribute 'lower'
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 27, in _
+    method = request.headers.get('X-HTTP-Method').lower()
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-07 16:44:46] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x102d16950>
+异常类型: AttributeError
+异常详情: 'NoneType' object has no attribute 'lower'
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 27, in _
+    method = request.headers.get('X-HTTP-Method').lower()
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-07 16:44:47] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x102d16950>
+异常类型: AttributeError
+异常详情: 'NoneType' object has no attribute 'lower'
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 27, in _
+    method = request.headers.get('X-HTTP-Method').lower()
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-07 16:44:48] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x102d16950>
+异常类型: AttributeError
+异常详情: 'NoneType' object has no attribute 'lower'
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 27, in _
+    method = request.headers.get('X-HTTP-Method').lower()
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-07 16:44:54] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x102d16950>
+异常类型: AttributeError
+异常详情: 'NoneType' object has no attribute 'lower'
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 27, in _
+    method = request.headers.get('X-HTTP-Method').lower()
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-07 16:44:55] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x102d16950>
+异常类型: AttributeError
+异常详情: 'NoneType' object has no attribute 'lower'
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 27, in _
+    method = request.headers.get('X-HTTP-Method').lower()
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-07 16:45:00] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x102d16950>
+异常类型: AttributeError
+异常详情: 'NoneType' object has no attribute 'lower'
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 27, in _
+    method = request.headers.get('X-HTTP-Method').lower()
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-07 16:45:01] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x102d16950>
+异常类型: AttributeError
+异常详情: 'NoneType' object has no attribute 'lower'
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 27, in _
+    method = request.headers.get('X-HTTP-Method').lower()
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-07 16:45:04] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x102d16950>
+异常类型: AttributeError
+异常详情: 'NoneType' object has no attribute 'lower'
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 27, in _
+    method = request.headers.get('X-HTTP-Method').lower()
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-07 16:45:05] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x102d16950>
+异常类型: AttributeError
+异常详情: 'NoneType' object has no attribute 'lower'
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 27, in _
+    method = request.headers.get('X-HTTP-Method').lower()
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-07 16:46:38] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x102d16950>
+异常类型: AttributeError
+异常详情: 'NoneType' object has no attribute 'lower'
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 27, in _
+    method = request.headers.get('X-HTTP-Method').lower()
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-07 16:46:39] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x102d16950>
+异常类型: AttributeError
+异常详情: 'NoneType' object has no attribute 'lower'
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 27, in _
+    method = request.headers.get('X-HTTP-Method').lower()
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-07 16:46:47] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x102d16950>
+异常类型: AttributeError
+异常详情: 'NoneType' object has no attribute 'lower'
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 27, in _
+    method = request.headers.get('X-HTTP-Method').lower()
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-07 16:46:49] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x102d16950>
+异常类型: AttributeError
+异常详情: 'NoneType' object has no attribute 'lower'
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 27, in _
+    method = request.headers.get('X-HTTP-Method').lower()
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+----------------------------------------------------------------------------------------------------

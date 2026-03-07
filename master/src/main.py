@@ -3,10 +3,12 @@ import config
 from utils.middle import BlueRouter
 from app.rpclient import RPCView,RPCProxyView
 from app.files import ImgesV
-from app.test import TestV
+from app.test import TestV,PingV
 
 
 app = Robyn(__file__)
+
+BlueRouter(app).include_views({'/test': TestV,'/ping':PingV })
 
 app.serve_directory(
     route="/html",
@@ -35,19 +37,14 @@ BlueRouter(app,'/files').include_views({
     '/img': ImgesV,
 })
 
-BlueRouter(app,'/test').include_views({
-    '': TestV, 
-})
 
 BlueRouter(app,'/api').include_views({
     '/:rpc_server/*sub_path': RPCView, 
 })
 
-
 BlueRouter(app,'/rpc').include_views({
     '/:rpc_server/*sub_path': RPCProxyView, 
 })
-
 
 if __name__ == "__main__":
     app.start(host=config.WebIP.HOST,port=config.WebIP.PORT)

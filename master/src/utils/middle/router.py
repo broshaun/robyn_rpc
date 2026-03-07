@@ -114,14 +114,14 @@ class Router:
         kwargs = {}
         for i,v in request.query_params.to_dict().items():
             kwargs[i] = v[0]
-        content_type = str(request.headers.get("content-type")).lower()
+        content_type = str(request.headers.get("content-type",'')).lower()
         if content_type.startswith('application/json'):
             kwargs = loads(request.body)
         return kwargs
     
 
 class BlueRouter:
-    def __init__(self,app:Robyn,prefix:str):
+    def __init__(self,app:Robyn,prefix=""):
         self.app = app
         self.router = SubRouter(__name__,prefix)
     
