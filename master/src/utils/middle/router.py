@@ -4,7 +4,52 @@ from utils.middle import Rsp
 import inspect
 
 
+
+class CompatRouter:
+    """
+    国内环境兼容版路由器 (POST 语义补偿模式)
+    职责：通过 X-HTTP-Method 头部实现 POST 隧道，转发至对应的 CRUD 方法。
+    """
+    def __init__(self,router:SubRouter,sub_path:str):
+        self.request:Request = None
+        
+        @router.get(sub_path)
+        @Rsp.response
+        async def _(request: Request):
+            result = getattr(self,'get')(**self.get_kwargs(request))
+            if inspect.isawaitable(result):
+                result = await result
+            return result
+
+        @router.post(sub_path)
+        @Rsp.response
+        async def _(request: Request):
+            method = request.headers.get('X-HTTP-Method').lower()
+            if hasattr(self,method):
+                result = getattr(self,method)(**self.get_kwargs(request))
+                if inspect.isawaitable(result):
+                    result = await result
+                return result
+
+    def get_kwargs(self,request:Request):
+        '''获取请求参数'''
+        self.request = request
+        kwargs = {}
+
+        for i,v in request.query_params.to_dict().items(): # 获取params值
+            kwargs[i] = v[0]
+        
+        content_type = str(request.headers.get("content-type")).lower() # 获取params值
+        if content_type.startswith('application/json') and request.body:
+            kwargs = loads(request.body)
+        return kwargs
+    
+
+
+
+
 class Router:
+    '''通用路由器'''
     def __init__(self,router:SubRouter,sub_path:str):
         self.request:Request = None
   

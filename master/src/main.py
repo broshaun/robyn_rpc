@@ -1,8 +1,9 @@
 from robyn import Robyn
 import config
 from utils.middle import BlueRouter
-from app.rpclient import RPCView
+from app.rpclient import RPCView,RPCProxyView
 from app.files import ImgesV
+from app.test import TestV
 
 
 app = Robyn(__file__)
@@ -31,12 +32,20 @@ app.serve_directory(
 )
 
 BlueRouter(app,'/files').include_views({
-    '/img':ImgesV,
+    '/img': ImgesV,
+})
+
+BlueRouter(app,'/test').include_views({
+    '': TestV, 
+})
+
+BlueRouter(app,'/api').include_views({
+    '/:rpc_server/*sub_path': RPCView, 
 })
 
 
-BlueRouter(app,'/api').include_views({
-    '/:rpc_server/*sub_path':RPCView, 
+BlueRouter(app,'/rpc').include_views({
+    '/:rpc_server/*sub_path': RPCProxyView, 
 })
 
 
