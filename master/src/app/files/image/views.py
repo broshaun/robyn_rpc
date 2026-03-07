@@ -12,7 +12,7 @@ class ImgesV(RqsH):
             data = os.listdir(config.IMGS)
         Rsp.ok(data)
 
-    def put(self,**kwargs):
+    def post(self,**kwargs):
         imgs = ImgasS()
         files = self.request.files
         if not files:
@@ -29,6 +29,10 @@ class ImgesV(RqsH):
         else:
             Rsp.ok(data=new_file_name,msg="上传成功")
         Rsp.keynull()
+
+    def put(self,**kwargs):
+        self.post(**kwargs)
+        
 
     def delete(self,**kwargs):
         file_name = kwargs.get('file_name')
