@@ -1,8 +1,8 @@
-from utils.middle import Rsp,RqsH
+from utils.middle import Rsp,CompatRouter
 
 
-class TestV(RqsH):
+class TestV(CompatRouter):
     async def get(self,**kwargs):
-        Rsp.ok('Wecome RobynRPC')
+        Rsp.ok('Robyn is OK !!!')
 
   
