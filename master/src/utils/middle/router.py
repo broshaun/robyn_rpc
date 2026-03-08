@@ -36,10 +36,10 @@ class CompatRouter:
         self.request = request
         kwargs = {}
 
-        for i,v in request.query_params.to_dict().items(): # 获取params值
+        for i,v in request.query_params.to_dict().items():
             kwargs[i] = v[0]
         
-        content_type = str(request.headers.get("content-type")).lower() # 获取params值
+        content_type = str(request.headers.get("content-type")).lower()
         if content_type.startswith('application/json') and request.body:
             kwargs = loads(request.body)
         return kwargs
@@ -114,7 +114,7 @@ class Router:
         kwargs = {}
         for i,v in request.query_params.to_dict().items():
             kwargs[i] = v[0]
-        content_type = str(request.headers.get("content-type",'')).lower()
+        content_type = str(request.headers.get("content-type")).lower()
         if content_type.startswith('application/json'):
             kwargs = loads(request.body)
         return kwargs
