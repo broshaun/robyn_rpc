@@ -1,0 +1,286 @@
+----------------------------------------------------------------------------------------------------
+[2026-03-11 18:40:30] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x1066b2ef0>
+异常类型: TypeError
+异常详情: 'email' is an invalid keyword argument for print()
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 32, in _
+    result = await result
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/app/rpclient/rpc_proxy_view.py", line 14, in post
+    print('method post',**kwargs)
+TypeError: 'email' is an invalid keyword argument for print()
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-11 18:40:33] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x1066b2ef0>
+异常类型: TypeError
+异常详情: 'email' is an invalid keyword argument for print()
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 32, in _
+    result = await result
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/app/rpclient/rpc_proxy_view.py", line 14, in post
+    print('method post',**kwargs)
+TypeError: 'email' is an invalid keyword argument for print()
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-11 18:41:11] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x102b1af80>
+异常类型: TypeError
+异常详情: 'email' is an invalid keyword argument for print()
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 33, in _
+    result = await result
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/app/rpclient/rpc_proxy_view.py", line 14, in post
+    print('method post',**kwargs)
+TypeError: 'email' is an invalid keyword argument for print()
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-11 18:41:55] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x104072f80>
+异常类型: TypeError
+异常详情: 'email' is an invalid keyword argument for print()
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 33, in _
+    result = await result
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/app/rpclient/rpc_proxy_view.py", line 14, in post
+    print('method post',**kwargs)
+TypeError: 'email' is an invalid keyword argument for print()
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-11 18:42:21] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x102b9af80>
+异常类型: TypeError
+异常详情: 'email' is an invalid keyword argument for print()
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 34, in _
+    result = await result
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/app/rpclient/rpc_proxy_view.py", line 14, in post
+    print('method post',**kwargs)
+TypeError: 'email' is an invalid keyword argument for print()
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-11 18:43:07] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x10234aef0>
+异常类型: TypeError
+异常详情: 'email' is an invalid keyword argument for print()
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 34, in _
+    result = await result
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/app/rpclient/rpc_proxy_view.py", line 14, in post
+    print('method post ++++',**kwargs)
+TypeError: 'email' is an invalid keyword argument for print()
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-11 18:43:26] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x10234aef0>
+异常类型: TypeError
+异常详情: 'email' is an invalid keyword argument for print()
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 34, in _
+    result = await result
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/app/rpclient/rpc_proxy_view.py", line 14, in post
+    print('method post ++++',**kwargs)
+TypeError: 'email' is an invalid keyword argument for print()
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-11 18:46:35] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x1061aaf80>
+异常类型: TypeError
+异常详情: 'email' is an invalid keyword argument for print()
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 35, in _
+    result = await result
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/app/rpclient/rpc_proxy_view.py", line 14, in post
+    print('method post ++++',**kwargs)
+TypeError: 'email' is an invalid keyword argument for print()
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-11 18:46:58] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x105872f80>
+异常类型: TypeError
+异常详情: 'email' is an invalid keyword argument for print()
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 35, in _
+    result = await result
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/app/rpclient/rpc_proxy_view.py", line 14, in post
+    print('method post ++++',**kwargs)
+TypeError: 'email' is an invalid keyword argument for print()
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-11 18:47:01] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x105872f80>
+异常类型: TypeError
+异常详情: 'email' is an invalid keyword argument for print()
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 35, in _
+    result = await result
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/app/rpclient/rpc_proxy_view.py", line 14, in post
+    print('method post ++++',**kwargs)
+TypeError: 'email' is an invalid keyword argument for print()
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-11 18:47:30] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x10412af80>
+异常类型: TypeError
+异常详情: 'email' is an invalid keyword argument for print()
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 35, in _
+    result = await result
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/app/rpclient/rpc_proxy_view.py", line 14, in post
+    print('method post ++++',**kwargs)
+TypeError: 'email' is an invalid keyword argument for print()
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-11 18:47:51] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x10249af80>
+异常类型: TypeError
+异常详情: 'email' is an invalid keyword argument for print()
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 35, in _
+    result = await result
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/app/rpclient/rpc_proxy_view.py", line 14, in post
+    print('method post ++++',**kwargs)
+TypeError: 'email' is an invalid keyword argument for print()
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-11 18:49:12] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x106312f80>
+异常类型: TypeError
+异常详情: 'email' is an invalid keyword argument for print()
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 34, in _
+    print('result',**self.get_kwargs(request))
+TypeError: 'email' is an invalid keyword argument for print()
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-11 18:49:57] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x1027bb010>
+异常类型: TypeError
+异常详情: 'email' is an invalid keyword argument for print()
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 36, in _
+    result = await result
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/app/rpclient/rpc_proxy_view.py", line 14, in post
+    print('method post ++++',**kwargs)
+TypeError: 'email' is an invalid keyword argument for print()
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-11 18:52:14] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x1027bb010>
+异常类型: TypeError
+异常详情: 'email' is an invalid keyword argument for print()
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 36, in _
+    result = await result
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/app/rpclient/rpc_proxy_view.py", line 14, in post
+    print('method post ++++',**kwargs)
+TypeError: 'email' is an invalid keyword argument for print()
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-11 18:52:25] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x1027bb010>
+异常类型: TypeError
+异常详情: 'email' is an invalid keyword argument for print()
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 36, in _
+    result = await result
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/app/rpclient/rpc_proxy_view.py", line 14, in post
+    print('method post ++++',**kwargs)
+TypeError: 'email' is an invalid keyword argument for print()
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-11 18:52:26] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x1027bb010>
+异常类型: TypeError
+异常详情: 'email' is an invalid keyword argument for print()
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 36, in _
+    result = await result
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/app/rpclient/rpc_proxy_view.py", line 14, in post
+    print('method post ++++',**kwargs)
+TypeError: 'email' is an invalid keyword argument for print()
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+[2026-03-11 18:52:27] 异常发生:
+异常位置: <function CompatRouter.__init__.<locals>._ at 0x1027bb010>
+异常类型: TypeError
+异常详情: 'email' is an invalid keyword argument for print()
+堆栈跟踪:
+Traceback (most recent call last):
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/answer.py", line 191, in response
+    await future
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/utils/middle/router.py", line 36, in _
+    result = await result
+  File "/Users/huaz/Documents/Coder/robyn_rpc/master/src/app/rpclient/rpc_proxy_view.py", line 14, in post
+    print('method post ++++',**kwargs)
+TypeError: 'email' is an invalid keyword argument for print()
+
+----------------------------------------------------------------------------------------------------

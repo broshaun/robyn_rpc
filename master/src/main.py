@@ -38,9 +38,9 @@ BlueRouter(app,'/files').include_views({
 })
 
 
-BlueRouter(app,'/api').include_views({
-    '/:rpc_server/*sub_path': RPCView, 
-})
+# BlueRouter(app,'/api').include_views({
+#     '/:rpc_server/*sub_path': RPCView, 
+# })
 
 BlueRouter(app,'/rpc').include_views({
     '/:rpc_server/*sub_path': RPCProxyView, 
