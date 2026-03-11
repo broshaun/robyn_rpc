@@ -11,16 +11,8 @@ class CompatRouter:
     职责：通过 X-HTTP-Method 头部实现 POST 隧道，转发至对应的 CRUD 方法。
     """
     def __init__(self,router:SubRouter,sub_path:str):
-        self.request:Request = None
-        
-        @router.get(sub_path)
-        @Rsp.response
-        async def _(request: Request):
-            result = getattr(self,'get')(**self.get_kwargs(request))
-            if inspect.isawaitable(result):
-                result = await result
-            return result
 
+        self.request:Request = None
         @router.post(sub_path)
         @Rsp.response
         async def _(request: Request):
@@ -30,6 +22,16 @@ class CompatRouter:
                 if inspect.isawaitable(result):
                     result = await result
                 return result
+
+        @router.get(sub_path)
+        @Rsp.response
+        async def _(request: Request):
+            if hasattr(self,'get'):
+                result = getattr(self,'get')(**self.get_kwargs(request))
+                if inspect.isawaitable(result):
+                    result = await result
+                return result
+
 
     def get_kwargs(self,request:Request):
         '''获取请求参数'''
