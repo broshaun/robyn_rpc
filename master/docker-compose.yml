@@ -19,16 +19,12 @@ services:
     working_dir: /usr/src
     command: python3 -u main.py --workers 4
 
-    networks:
-      bridge-network:
-        aliases:
-          - master.local
+    # networks:
+    #    swarm-overlay-network:
+    #     aliases:
+    #       - master.local
 
 
-networks:
-  bridge-network:
-    driver: bridge
-    name: bridge-network
 
 # networks:
 #   swarm-overlay-network:
