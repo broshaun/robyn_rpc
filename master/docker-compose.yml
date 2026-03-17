@@ -18,15 +18,3 @@ services:
 
     working_dir: /usr/src
     command: python3 -u main.py --workers 4
-
-    # networks:
-    #    swarm-overlay-network:
-    #     aliases:
-    #       - master.local
-
-
-
-# networks:
-#   swarm-overlay-network:
-#     external: true
-#     name: swarm-overlay-network
